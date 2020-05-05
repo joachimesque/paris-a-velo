@@ -1,24 +1,50 @@
-.POInt__group .POInt__text {
-  font-size: 12px;
-  font-family: sans-serif;
-  font-weight: bold;
-
-  visibility: hidden;
-}
-.POInt__group:hover .POInt__text {
-  /* How about using Delaunator to make a Voronoi mesh for the hover? */
-  visibility: visible;
+:root {
+  --placePoint__strokeColor : #000;
+  --placePoint__fillColor   : #FFF;
+  --transition-duration     : .25s;
 }
 
+.placePoint__point {
+  transition   : fill var(--transition-duration) ease;
+
+  stroke       : var(--placePoint__strokeColor);
+  stroke-width : 3px;
+  fill         : var(--placePoint__fillColor);
+}
+
+.placeName {
+  opacity    : 0;
+  transition : opacity var(--transition-duration) ease;
+}
+
+.placeName.placeName--active {
+  opacity : 1;
+}
+
+.placeName__text {
+  font-family : sans-serif;
+  font-size   : 12px;
+  font-weight : bold;
+}
+
+.placeName__bg {
+  fill : white;
+}
+
+polygon {
+  cursor : pointer;
+}
 
 .numberText {
-  font-size: 12px;
-  font-family: sans-serif;
-  font-weight: bold;
+  font-family : sans-serif;
+  font-size   : 12px;
+  font-weight : bold;
 }
+
 .numberText.numberText--bottom {
-  font-size: 10px;
+  font-size : 10px;
 }
+
 .numberText.numberText--top {
-  font-size: 10px;
+  font-size : 10px;
 }

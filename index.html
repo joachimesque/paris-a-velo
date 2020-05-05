@@ -13,7 +13,7 @@
   <body>
 
     <svg viewBox="0 0 1280 960" xmlns="http://www.w3.org/2000/svg" width="1280" height="960">
-      <g id="#bg_map">
+      <g id="bg_map">
         <path fill="#e0dad3" d="M-1-76.4h1284.8v1050H-1z"/>
         <path d="M1287.3-76.4c0-2-1.5-3.5-3.5-3.5H-1c-1.9 0-3.5 1.5-3.5 3.5v1050c0 2 1.6 3.5 3.5 3.5h1285c1.9 0 3.4-1.6 3.4-3.5v-1050zM2.4-73V970h1278v-1043H2.3z" fill="none"/>
         <g opacity=".3">
@@ -290,17 +290,21 @@
       </g>
 
       <defs>
-        <g id="point" class="POInt__group">
-          <circle cx="6" cy="6" r="6" stroke="#000" stroke-width="3" fill="#fff"/>
-          <text transform="translate(16 10)" class="POInt__text">Another</text>
+        <g id="point" class="placePoint__group">
+          <circle cx="6" cy="6" r="6" class="placePoint__point"/>
         </g>
       </defs>
 
       <g id="lines"></g>
       <g id="points"></g>
       <g id="texts"></g>
+      <g id="names"></g>
+      <g id="voronoi"></g>
     </svg>
 
+    <script src="js/data.js"></script>
+    <script src="js/helpers.js"></script>
+    <script src="js/voronoi.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>
