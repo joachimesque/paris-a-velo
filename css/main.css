@@ -4,7 +4,7 @@
   --transition-duration     : .25s;
 }
 
-.placePoint__point {
+.placePoint {
   transition   : fill var(--transition-duration) ease;
 
   stroke       : var(--placePoint__strokeColor);
@@ -31,8 +31,33 @@
   fill : white;
 }
 
-polygon {
+.zoneVoronoi, .zonePoint, .zoneLine {
   cursor : pointer;
+}
+
+.line__regular {
+  stroke: #399;
+}
+.line__hard {
+  stroke: #F60;  
+}
+.line__easy {
+  stroke: #06F;  
+}
+.lineArrow__hard {
+  fill: #F60;
+}
+.lineArrow__easy {
+  fill: #06F;
+}
+.line__selected.line__regular,
+.line__selected .line__hard,
+.line__selected .line__easy {
+  stroke: #333;  
+}
+.line__selected .lineArrow__hard,
+.line__selected .lineArrow__easy {
+  fill: #333;
 }
 
 .numberText {

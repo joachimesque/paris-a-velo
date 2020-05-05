@@ -1,16 +1,22 @@
 // CONSTS AND CONFIG
 
-const pointRadius = 6;
 const pointsGroup = document.getElementById("points");
 const linesGroup = document.getElementById("lines");
 const textGroup = document.getElementById("texts");
 const nameGroup = document.getElementById("names");
 const voronoiGroup = document.getElementById("voronoi");
+const lineZonesGroup = document.getElementById("lineZones");
+const pointZonesGroup = document.getElementById("pointZones");
+const pointRadius = 6;
+const zonePointRadius = 18;
+const zoneLineWidth = 20;
 const singleLineWidth = 4;
 const doubleLineWidth = 2.5;
-const doubleLineGap = 2;
+const doubleLineGap = 1.5;
 const arrowLength = 4;
 const activePoints = new Set();
+const activeLines = new Set();
+let timeCount = 0;
 
 // HELPERS & UTILS
 
@@ -86,12 +92,34 @@ const togglePoint = point => {
   return highlightPoint(point);
 };
 
+const toggleLine = line => {
+  const targetLine = document.getElementById(`line__${line}`)
+  if (!targetLine) return;
+  if (activeLines.has(line)) {
+    activeLines.delete(line);
+    targetLine.classList.remove("line__selected");
+  } else {
+    activeLines.add(line)
+    targetLine.classList.add("line__selected");
+  }
+
+  timeCount = 0;
+  activeLines.forEach(updateTimeCount);
+  console.log(timeCount);
+}
+
+const updateTimeCount = (value) => timeCount = timeCount + data.lines[value].time
+
 // DRAWING METHODS
 
 const drawPoint = ({ x, y }, name) => {
   const newPoint = document.createElementNS(
     "http://www.w3.org/2000/svg",
-    "use"
+    "circle"
+  );
+  const newZonePoint = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "circle"
   );
   const newTextGroup = document.createElementNS(
     "http://www.w3.org/2000/svg",
@@ -109,13 +137,29 @@ const drawPoint = ({ x, y }, name) => {
 
   // add point
   setAttributes(newPoint, {
-    x: x - pointRadius,
-    y: y - pointRadius,
+    transform: `translate(${x - pointRadius} ${y - pointRadius})`,
+    cx: pointRadius,
+    cy: pointRadius,
+    r: pointRadius,
     class: "placePoint",
     id: `placePoint_${slugify(name)}`,
   });
-  newPoint.setAttributeNS("http://www.w3.org/1999/xlink", "href", "#point");
   pointsGroup.appendChild(newPoint);
+
+  // add pointzone
+  setAttributes(newZonePoint, {
+    transform: `translate(${x - zonePointRadius} ${y - zonePointRadius})`,
+    cx: zonePointRadius,
+    cy: zonePointRadius,
+    r: zonePointRadius,
+    class: 'zonePoint',
+    id: `zonePoint_${slugify(name)}`,
+    opacity: 0,
+  });
+  pointZonesGroup.appendChild(newZonePoint);
+  newZonePoint.addEventListener("click", () => {
+    togglePoint(name);
+  });
 
   // add text group and text
   setAttributes(newTextGroup, {
@@ -143,50 +187,26 @@ const drawPoint = ({ x, y }, name) => {
   newTextGroup.insertBefore(newTextBg, newText);
 };
 
-const drawLine = ({ start, end }) => {
+const drawLine = ({ start, end, index }) => {
   const newLine = document.createElementNS(
     "http://www.w3.org/2000/svg",
     "line"
   );
   setAttributes(newLine, {
+    id: `line__${index}`,
     x1: start.x,
     x2: end.x,
     y1: start.y,
     y2: end.y,
-    stroke: "#80F",
+    class: 'line__regular',
     "stroke-width": singleLineWidth,
   });
   linesGroup.appendChild(newLine);
+
+  drawLineZone({start, end, index});
 };
 
-const drawNumber = ({ start, end, number, align }) => {
-  const lineCenter = getCenter({ start, end });
-  const newText = document.createElementNS(
-    "http://www.w3.org/2000/svg",
-    "text"
-  );
-  const textNode = document.createTextNode(number);
-  newText.appendChild(textNode);
-
-  let rotateAngle = getLineAngle({ start, end }) + 90;
-  if (rotateAngle > 90) {
-    rotateAngle = rotateAngle - 180;
-  }
-  const rotateTransform = `rotate(${rotateAngle} ${lineCenter.x} ${lineCenter.y})`;
-  const translateTransform = `translate(0 ${align === 'top' ? -5 : 12})`
-
-  setAttributes(newText, {
-    x: lineCenter.x,
-    y: lineCenter.y,
-    "text-anchor": "middle",
-    transform: `${rotateTransform} ${translateTransform}`,
-    class: "numberText",
-  });
-
-  textGroup.appendChild(newText);
-};
-
-const drawDoubleLine = ({ start, end, difficulty }) => {
+const drawDoubleLine = ({ start, end, difficulty, index }) => {
   const newGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
   const newLine1 = document.createElementNS(
     "http://www.w3.org/2000/svg",
@@ -213,15 +233,17 @@ const drawDoubleLine = ({ start, end, difficulty }) => {
 
   const lineAngle = getLineAngle({ start, end });
 
-  const lineColor1 = difficulty > 0 ? "#F00" : "#00F";
-  const lineColor2 = difficulty < 0 ? "#F00" : "#00F";
+  const lineClass1 = difficulty > 0 ? 'line__hard' : 'line__easy';
+  const lineClass2 = difficulty < 0 ? 'line__hard' : 'line__easy';
+  const arrowClass1 = difficulty > 0 ? 'lineArrow__hard' : 'lineArrow__easy';
+  const arrowClass2 = difficulty < 0 ? 'lineArrow__hard' : 'lineArrow__easy';
 
   setAttributes(newLine1, {
     x1: -doubleLineGap,
     x2: -doubleLineGap,
     y1: -1 * length / 2,
     y2: length / 2,
-    stroke: lineColor1,
+    class: lineClass1,
     "stroke-width": doubleLineWidth,
   });
   setAttributes(newLine2, {
@@ -229,7 +251,7 @@ const drawDoubleLine = ({ start, end, difficulty }) => {
     x2: doubleLineGap,
     y1: -1 * length / 2,
     y2: length / 2,
-    stroke: lineColor2,
+    class: lineClass2,
     "stroke-width": doubleLineWidth,
   });
 
@@ -239,7 +261,7 @@ const drawDoubleLine = ({ start, end, difficulty }) => {
     x: -doubleLineGap - arrowLength,
     y: arrowLength * 2 + 3,
     transform: "skewY(60)",
-    fill: lineColor1,
+    class: arrowClass1,
   });
 
   setAttributes(newArrow2, {
@@ -248,7 +270,7 @@ const drawDoubleLine = ({ start, end, difficulty }) => {
     x: doubleLineGap,
     y: -arrowLength * 2 - 3,
     transform: "skewY(60)",
-    fill: lineColor2,
+    class: arrowClass2,
   });
 
   newGroup.appendChild(newLine1);
@@ -257,13 +279,67 @@ const drawDoubleLine = ({ start, end, difficulty }) => {
   newGroup.appendChild(newArrow2);
 
   setAttributes(newGroup, {
+    id: `line__${index}`,
+    class: 'line__group',
     transform: `rotate(${lineAngle} ${lineCenter.x} ${lineCenter.y}) translate(${lineCenter.x} ${lineCenter.y})`,
   });
 
   linesGroup.appendChild(newGroup);
+
+  drawLineZone({start, end, index});
 };
 
-const drawDoubleNumber = ({ start, end, numbers }) => {
+const drawLineZone = ({start, end, index}) => {
+  const newLine = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "line"
+  );
+  setAttributes(newLine, {
+    id: `lineZone__${index}`,
+    x1: start.x,
+    x2: end.x,
+    y1: start.y,
+    y2: end.y,
+    stroke: "#555",
+    "stroke-width": zoneLineWidth,
+    opacity: 0,
+    class: 'zoneLine',
+  });
+
+  lineZonesGroup.appendChild(newLine);
+
+  newLine.addEventListener('click', () => toggleLine(index))
+}
+
+const drawNumber = ({ start, end, number, align, displayMin }) => {
+  const lineCenter = getCenter({ start, end });
+  const newText = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "text"
+  );
+  const min = displayMin ? ' min' : ''
+  const textNode = document.createTextNode(number + min);
+  newText.appendChild(textNode);
+
+  let rotateAngle = getLineAngle({ start, end }) + 90;
+  if (rotateAngle > 90) {
+    rotateAngle = rotateAngle - 180;
+  }
+  const rotateTransform = `rotate(${rotateAngle} ${lineCenter.x} ${lineCenter.y})`;
+  const translateTransform = `translate(0 ${align === 'top' ? -5 : 12})`
+
+  setAttributes(newText, {
+    x: lineCenter.x,
+    y: lineCenter.y,
+    "text-anchor": "middle",
+    transform: `${rotateTransform} ${translateTransform}`,
+    class: "numberText",
+  });
+
+  textGroup.appendChild(newText);
+};
+
+const drawDoubleNumber = ({ start, end, numbers, displayMin }) => {
   const lineCenter = getCenter({ start, end });
   let rotateAngle = getLineAngle({ start, end }) + 90;
   if (rotateAngle > 90) {
@@ -279,11 +355,12 @@ const drawDoubleNumber = ({ start, end, numbers }) => {
     "http://www.w3.org/2000/svg",
     "text"
   );
+  const min = displayMin ? ' min' : ''
   const textNode1 = document.createTextNode(
-    rotateAngle < 0 ? numbers.top : numbers.bottom
+    (rotateAngle < 0 ? numbers.top : numbers.bottom) + min
   );
   const textNode2 = document.createTextNode(
-    rotateAngle < 0 ? numbers.bottom : numbers.top
+    (rotateAngle < 0 ? numbers.bottom : numbers.top) + min
   );
   newText1.appendChild(textNode1);
   newText2.appendChild(textNode2);
@@ -315,9 +392,9 @@ const drawPolygon = (point, vertices) => {
 
   setAttributes(newPolygon, {
     fill: "#FFF",
-    stroke: "#0F0",
     points: vertices,
     opacity: 0,
+    class: 'zoneVoronoi',
   });
 
   // newPolygon.addEventListener('mouseenter', () => {
@@ -339,31 +416,35 @@ Object.keys(data.points).forEach(point => {
   drawPoint(data.points[point], point);
 });
 
-data.lines.forEach(line => {
+data.lines.forEach((line, index) => {
   if (line.difficulty === 0) {
     drawNumber({
       start: data.points[line.start],
       end: data.points[line.end],
       number: line.time,
       align: line.align,
+      displayMin: line.displayMin,
     });
     drawLine({
       start: data.points[line.start],
       end: data.points[line.end],
+      index: index,
     });
   } else {
     drawDoubleNumber({
       start: data.points[line.start],
       end: data.points[line.end],
       numbers: {
-        top: line.difficulty > 0 ? line.time.hard : line.time.easy,
-        bottom: line.difficulty > 0 ? line.time.easy : line.time.hard,
+        top: line.difficulty > 0 ? line.times.hard : line.times.easy,
+        bottom: line.difficulty > 0 ? line.times.easy : line.times.hard,
       },
+      displayMin: line.displayMin,
     });
     drawDoubleLine({
       start: data.points[line.start],
       end: data.points[line.end],
       difficulty: line.difficulty,
+      index: index,
     });
   }
 });
