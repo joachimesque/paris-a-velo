@@ -160,7 +160,6 @@ const drawLine = ({ start, end }) => {
 };
 
 const drawNumber = ({ start, end, number, align }) => {
-  console.log(align)
   const lineCenter = getCenter({ start, end });
   const newText = document.createElementNS(
     "http://www.w3.org/2000/svg",

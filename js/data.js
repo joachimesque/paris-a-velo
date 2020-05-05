@@ -75,7 +75,7 @@ const data = {
       end: "Porte de Clichy",
       difficulty: 0,
       time: "14 min",
-      align: "top",
+      align: "bottom",
     },
     {
       start: "Gare Saint-Lazare",
@@ -194,14 +194,14 @@ const data = {
       end: "Notre Dame",
       difficulty: 0,
       time: "12 min",
-      align: "top",
+      align: "bottom",
     },
     {
       start: "Invalides",
       end: "Tour Eiffel",
       difficulty: 0,
       time: "8 min",
-      align: "top",
+      align: "bottom",
     },
     {
       start: "Jardin du Luxembourg",
@@ -214,7 +214,7 @@ const data = {
       start: "Jardin du Luxembourg",
       end: "Place d’Italie",
       difficulty: 1,
-      time: { hard: "11 min", easy: "9 min" },
+      time: { hard: "11", easy: "9" },
       align: null,
     },
     {
@@ -268,9 +268,9 @@ const data = {
     },
     {
       start: "Maison de la Radio",
-      end: "Place de l’Étoile",
+      end: "Place de l’Alma",
       difficulty: 0,
-      time: "13 min",
+      time: "8 min",
       align: "top",
     },
     {
@@ -278,7 +278,7 @@ const data = {
       end: "Tour Eiffel",
       difficulty: 0,
       time: "8 min",
-      align: "top",
+      align: "bottom",
     },
     {
       start: "Maison de la Radio",
@@ -334,7 +334,7 @@ const data = {
       end: "Place de la République",
       difficulty: 0,
       time: "9 min",
-      align: "top",
+      align: "bottom",
     },
     {
       start: "Notre Dame",
@@ -428,10 +428,24 @@ const data = {
       align: "top",
     },
     {
-      start: "Place de l’Étoile",
+      start: "Place de l’Alma",
       end: "Tour Eiffel",
       difficulty: 0,
-      time: "12 min",
+      time: "6 min",
+      align: "bottom",
+    },
+    {
+      start: "Place de l’Alma",
+      end: "Place de l’Étoile",
+      difficulty: 0,
+      time: "6 min",
+      align: "bottom",
+    },
+    {
+      start: "Place de l’Alma",
+      end: "Place de la Concorde",
+      difficulty: 0,
+      time: "5 min",
       align: "top",
     },
     {
@@ -529,14 +543,14 @@ const data = {
       start: "Porte de Clichy",
       end: "Porte de Saint-Ouen",
       difficulty: 0,
-      time: "9 min",
+      time: "5 min",
       align: "top",
     },
     {
       start: "Porte de Saint-Ouen",
       end: "Porte de la Chapelle",
       difficulty: 0,
-      time: "8 min",
+      time: "10 min",
       align: "top",
     },
     {
@@ -620,35 +634,35 @@ const data = {
       start: "Porte de Clichy",
       end: "Mairie de Clichy",
       difficulty: 0,
-      time: "a",
-      align: "top",
+      time: "7 min",
+      align: "bottom",
     },
     {
       start: "Asnières (Gabriel Péri)",
       end: "Mairie de Clichy",
       difficulty: 0,
-      time: "b",
+      time: "10 min",
       align: "top",
     },
     {
       start: "Mairie de Clichy",
       end: "Saint-Ouen RER",
       difficulty: 0,
-      time: "c",
+      time: "7 min",
       align: "top",
     },
     {
       start: "Porte de Clichy",
       end: "Saint-Ouen RER",
       difficulty: 0,
-      time: "d",
+      time: "7 min",
       align: "top",
     },
     {
       start: "Saint-Ouen",
       end: "Saint-Ouen RER",
       difficulty: 0,
-      time: "e",
+      time: "7 min",
       align: "top",
     },
     {
@@ -670,6 +684,20 @@ const data = {
       end: "Charenton-le-Pont",
       difficulty: 0,
       time: "12 min",
+      align: "top",
+    },
+    {
+      start: "Porte Dorée",
+      end: "Charenton-le-Pont",
+      difficulty: 0,
+      time: "7 min",
+      align: "top",
+    },
+    {
+      start: "Château de Vincennes",
+      end: "Charenton-le-Pont",
+      difficulty: -1,
+      time: {hard: "19 min", easy: "17 min"},
       align: "top",
     },
   ],
@@ -850,5 +878,11 @@ const data = {
       x: 703,
       y: 180,
     },
+    "Place de l’Alma": {
+      x: 491, y: 461
+    },
+    "Chez les Luc-Antoine": {
+      x: 846, y: 278
+    }
   },
 };
