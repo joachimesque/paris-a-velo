@@ -1,4 +1,5 @@
 const clicCoordinatesElement = document.getElementById("clicCoordinates");
+const svgElement = document.querySelector('svg');
 
 // GLOBAL EVENT LISTENERS
 
@@ -13,7 +14,7 @@ const addClickEvent = (element, callback) => {
   });
 };
 
-document.addEventListener("click", event => {
+svgElement.addEventListener("click", event => {
   clicCoordinatesElement.innerHTML = `clic au point {x: ${event.layerX}, y: ${event.layerY}}`;
   console.log(`clic au point {x: ${event.layerX}, y: ${event.layerY}}`);
 });
@@ -101,7 +102,7 @@ beforePan = function(oldPan, newPan) {
 
 var panZoom = (window.panZoom = svgPanZoom("#map", {
   panEnabled: true,
-  controlIconsEnabled: true,
+  controlIconsEnabled: false,
   zoomEnabled: true,
   dblClickZoomEnabled: false,
   mouseWheelZoomEnabled: true,
@@ -122,3 +123,22 @@ window.addEventListener("resize", e => {
   panZoom.fit();
   panZoom.center();
 });
+
+
+document.getElementById('mapControl__zoomPlus').addEventListener('click', function(ev){
+  ev.preventDefault();
+  panZoom.zoomIn();
+});
+
+document.getElementById('mapControl__zoomMinus').addEventListener('click', function(ev){
+  ev.preventDefault();
+  panZoom.zoomOut();
+});
+
+document.getElementById('mapControl__zoomReset').addEventListener('click', function(ev){
+  ev.preventDefault();
+  panZoom.resetZoom();
+  panZoom.center();
+});
+
+
