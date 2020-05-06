@@ -4,6 +4,80 @@
   --transition-duration     : .25s;
 }
 
+body {
+  font-family : Work Sans, sans-serif;
+}
+
+#main {
+  display: grid;
+  gap: 1rem;
+  width: 100vw;
+  height: 100vh;
+  grid-template-rows: auto 10%;
+  grid-template-columns: 30% auto;
+}
+
+#interface {
+  padding: 2rem 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#interface .title {
+  flex: 1 0 auto;
+  margin-bottom: 1rem;
+}
+
+#interface .tools {
+  flex: 5 0 auto;
+  margin-bottom: 1rem;
+}
+
+#container {
+  width: 100%;
+  height: calc(100% - 2px);
+  grid-row: 1 / span 2;
+  grid-column: 2;
+}
+
+#credits {
+  font-size: .66rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+@media (orientation: portrait) {
+  #main {
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto;
+  }
+
+  #interface {
+    padding: 1rem;
+  }
+}
+
+/* Typography */
+
+.small {
+  font-size: .85rem;
+}
+
+/* Cartography */
+
+svg {
+  display: inline;
+  width: inherit;
+  min-width: inherit;
+  max-width: inherit;
+  height: inherit;
+  min-height: inherit;
+  max-height: inherit;
+  font-family : Work Sans, sans-serif;
+  font-weight: 600;
+}
+
 .placePoint {
   transition   : fill var(--transition-duration) ease;
 
@@ -22,9 +96,7 @@
 }
 
 .placeName__text {
-  font-family : sans-serif;
-  font-size   : 12px;
-  font-weight : bold;
+  font-size   : .75rem;
 }
 
 .placeName__bg {
@@ -53,7 +125,7 @@
 .line__selected.line__regular,
 .line__selected .line__hard,
 .line__selected .line__easy {
-  stroke: #333;  
+  stroke: #333;
 }
 .line__selected .lineArrow__hard,
 .line__selected .lineArrow__easy {
@@ -61,15 +133,14 @@
 }
 
 .numberText {
-  font-family : sans-serif;
-  font-size   : 12px;
-  font-weight : bold;
+  fill: #333;
+  font-size   : .75rem;
 }
 
 .numberText.numberText--bottom {
-  font-size : 10px;
+  font-size : .66rem;
 }
 
 .numberText.numberText--top {
-  font-size : 10px;
+  font-size : .66rem;
 }
