@@ -63,7 +63,12 @@ const activePoints = new Proxy(activePointsArray, {
 const handleLineCountChange = () => {
   timeCount = 0;
   activeLines.forEach(value => (timeCount += data.lines[value].time));
-  valueElement.innerHTML = timeCount;
+
+  const hourCount = Math.floor(timeCount / 60)
+  const timeDisplay = timeCount > 60
+    ? `${hourCount} heure${hourCount > 1 ? 's' : ''} ${timeCount % 60}`
+    : timeCount
+  valueElement.innerHTML = timeDisplay;
 };
 
 const handlePointsCountChange = () => {};

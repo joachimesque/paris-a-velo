@@ -1,7 +1,7 @@
 :root {
   --placePoint__strokeColor : #000;
   --placePoint__fillColor   : #FFF;
-  --transition-duration     : .25s;
+  --transition-duration     : .15s;
 }
 
 body {
@@ -198,9 +198,14 @@ svg {
     color var(--transition-duration) ease;
 }
 
-#mapControls button:hover {
+#mapControls button:hover,
+#mapControls button:focus {
   color: #FFF;
   background-color: #557;
+}
+#mapControls button:active {
+  color: #FFF;
+  background-color: #113;
 }
 
 #mapControls button:first-child {

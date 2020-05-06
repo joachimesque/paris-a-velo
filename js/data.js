@@ -556,7 +556,7 @@ const data = {
       end: "Gare de Lyon",
       difficulty: 0,
       displayMin: true,
-      time: 3,
+      time: 5,
       align: "bottom",
     },
     {
