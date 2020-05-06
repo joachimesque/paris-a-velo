@@ -1,6 +1,4 @@
 :root {
-  --placePoint__strokeColor : #000;
-  --placePoint__fillColor   : #FFF;
   --transition-duration     : .15s;
 }
 
@@ -105,9 +103,12 @@ svg {
 .placePoint {
   transition   : fill var(--transition-duration) ease;
 
-  stroke       : var(--placePoint__strokeColor);
+  stroke       : #000;
   stroke-width : 3px;
-  fill         : var(--placePoint__fillColor);
+  fill         : #FFF;
+}
+.placePoint.placePoint--active {
+  stroke       : #FFF;
 }
 
 .placeName {
@@ -128,6 +129,7 @@ svg {
 }
 
 .zoneVoronoi, .zonePoint, .zoneLine {
+  opacity: 0;
   cursor : pointer;
 }
 

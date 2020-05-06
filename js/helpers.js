@@ -53,3 +53,26 @@ const slugify = (text = "", separator) => {
 
   return text;
 };
+
+
+// array utils
+const arrayHasValue = (array, value) => {
+  return array.indexOf(value) >= 0;
+};
+
+const arrayAddValue = (array, value) => {
+  const index = array.indexOf(value);
+  if (index <= -1) {
+    array.push(value);
+  }
+  return array;
+};
+
+const arrayRemoveValue = (array, value) => {
+  const index = array.indexOf(value);
+  if (index > -1) {
+    array.splice(index, 1);
+  }
+  return array;
+};
+

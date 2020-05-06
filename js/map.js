@@ -21,27 +21,6 @@ let timeCount = 0;
 
 // HELPERS & UTILS
 
-// array utils
-const arrayHasValue = (array, value) => {
-  return array.indexOf(value) >= 0;
-};
-
-const arrayAddValue = (array, value) => {
-  const index = array.indexOf(value);
-  if (index <= -1) {
-    array.push(value);
-  }
-  return array;
-};
-
-const arrayRemoveValue = (array, value) => {
-  const index = array.indexOf(value);
-  if (index > -1) {
-    array.splice(index, 1);
-  }
-  return array;
-};
-
 // proxies
 const activeLines = new Proxy(activeLinesArray, {
   set: (target, key, value) => {
@@ -123,7 +102,7 @@ const highlightPoint = point => {
   const targetText = document.getElementById(`placeName_${slugify(point)}`);
   if (!targetPoint || !targetText || arrayHasValue(activePoints, point)) return;
   arrayAddValue(activePoints, point);
-  targetPoint.style = "--placePoint__strokeColor: #FFF;";
+  targetPoint.classList.add("placePoint--active");
   targetText.classList.add("placeName--active");
 };
 const unlightPoint = point => {
@@ -132,7 +111,7 @@ const unlightPoint = point => {
   if (!targetPoint || !targetText || !arrayHasValue(activePoints, point))
     return;
   arrayRemoveValue(activePoints, point);
-  targetPoint.style = "";
+  targetPoint.classList.remove("placePoint--active");
   targetText.classList.remove("placeName--active");
 };
 
@@ -199,7 +178,6 @@ const drawPoint = ({ x, y }, name) => {
     r: zonePointRadius,
     class: "zonePoint",
     id: `zonePoint_${slugify(name)}`,
-    opacity: 0,
   });
   pointZonesGroup.appendChild(newZonePoint);
   addClickEvent(newZonePoint, () => togglePoint(name));
@@ -219,7 +197,7 @@ const drawPoint = ({ x, y }, name) => {
   newTextGroup.appendChild(newText);
 
   // add BG
-  newTextBBox = newText.getBBox();
+  const newTextBBox = newText.getBBox();
   setAttributes(newTextBg, {
     x: newTextBBox.x,
     y: -pointRadius - 1.5,
@@ -228,6 +206,15 @@ const drawPoint = ({ x, y }, name) => {
     class: "placeName__bg",
   });
   newTextGroup.insertBefore(newTextBg, newText);
+
+  if(newTextBBox.width + x > svgViewbox.width + svgViewbox.x) {
+    setAttributes(newTextGroup, {
+      transform: `translate(${x - newTextBBox.width} ${y})`,
+    });
+    setAttributes(newTextBg, {
+      x: -pointRadius,
+    });
+  }
 };
 
 const drawLine = ({ start, end, index }) => {
@@ -345,7 +332,6 @@ const drawLineZone = ({ start, end, index }) => {
     y2: end.y,
     stroke: "#555",
     "stroke-width": zoneLineWidth,
-    opacity: 0,
     class: "zoneLine",
   });
 
@@ -436,7 +422,6 @@ const drawPolygon = (point, vertices) => {
   setAttributes(newPolygon, {
     fill: "#FFF",
     points: vertices,
-    opacity: 0,
     class: "zoneVoronoi",
   });
 
