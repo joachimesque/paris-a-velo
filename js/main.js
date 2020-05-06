@@ -7,7 +7,6 @@ const svgViewbox = svgElement.viewBox.baseVal;
 let _hasBeenDragged = false;
 
 document.addEventListener("mousedown", () => (_hasBeenDragged = false));
-document.addEventListener("mousemove", () => (_hasBeenDragged = true));
 
 const addClickEvent = (element, callback) => {
   element.addEventListener("click", () => {
@@ -90,6 +89,9 @@ document.fonts.ready.then(function(fontFaceSet) {
   var beforePan;
 
   beforePan = function(oldPan, newPan) {
+    if(oldPan !== newPan) {
+      _hasBeenDragged = true;
+    }
     var stopHorizontal = false,
       stopVertical = false,
       sizes = this.getSizes(),
@@ -152,6 +154,24 @@ document.fonts.ready.then(function(fontFaceSet) {
     panZoom.resetZoom();
     panZoom.center();
   });
+
+  // MOBILE FOLD
+  const interfaceElement = document.querySelector('#interface');
+  const foldButton = document.querySelector('button.foldController');
+  if (foldButton) {
+    foldButton.addEventListener('click', () => {
+      interfaceElement.classList.toggle('interface--isFolded');
+      foldButton.innerHTML = interfaceElement.classList.contains('interface--isFolded')
+        ? '↓'
+        : '×'
+
+      setTimeout(() => {
+        panZoom.resize();
+        panZoom.fit();
+        panZoom.center();
+      }, 300);
+    })
+  }
 
 });
 

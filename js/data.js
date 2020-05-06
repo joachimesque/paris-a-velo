@@ -479,7 +479,7 @@ const data = {
       end: "Porte Maillot",
       difficulty: 0,
       displayMin: true,
-      time: 20,
+      time: 17,
       align: "top",
     },
     {
