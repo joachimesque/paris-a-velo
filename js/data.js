@@ -243,7 +243,7 @@ const data = {
       difficulty: 0,
       displayMin: true,
       time: 8,
-      align: "top",
+      align: "bottom",
     },
     {
       start: "Gare du Nord",
