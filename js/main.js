@@ -14,7 +14,7 @@ const addClickEvent = (element, callback) => {
 };
 
 document.addEventListener("click", event => {
-  clicCoordinates.innerHTML = `clic au point {x: ${event.layerX}, y: ${event.layerY}}`;
+  clicCoordinatesElement.innerHTML = `clic au point {x: ${event.layerX}, y: ${event.layerY}}`;
   console.log(`clic au point {x: ${event.layerX}, y: ${event.layerY}}`);
 });
 

@@ -5,7 +5,7 @@
   font-weight: 100;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-ThinItalic.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-ThinItalic.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-ThinItalic.woff') format('woff');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -15,7 +15,7 @@
   font-weight: 100;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-ThinItalic.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-ThinItalic.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-ThinItalic.woff') format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -26,7 +26,7 @@
   font-weight: 200;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-ExtraLightItalic.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-ExtraLightItalic.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-ExtraLightItalic.woff') format('woff');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -36,7 +36,7 @@
   font-weight: 200;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-ExtraLightItalic.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-ExtraLightItalic.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-ExtraLightItalic.woff') format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -47,7 +47,7 @@
   font-weight: 300;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-LightItalic.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-LightItalic.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-LightItalic.woff') format('woff');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -57,7 +57,7 @@
   font-weight: 300;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-LightItalic.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-LightItalic.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-LightItalic.woff') format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -68,7 +68,7 @@
   font-weight: 400;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-RegularItalic.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-RegularItalic.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-RegularItalic.woff') format('woff');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -78,7 +78,7 @@
   font-weight: 400;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-RegularItalic.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-RegularItalic.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-RegularItalic.woff') format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -89,7 +89,7 @@
   font-weight: 500;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-MediumItalic.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-MediumItalic.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-MediumItalic.woff') format('woff');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -99,7 +99,7 @@
   font-weight: 500;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-MediumItalic.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-MediumItalic.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-MediumItalic.woff') format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -110,7 +110,7 @@
   font-weight: 600;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-SemiBoldItalic.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-SemiBoldItalic.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-SemiBoldItalic.woff') format('woff');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -120,7 +120,7 @@
   font-weight: 600;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-SemiBoldItalic.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-SemiBoldItalic.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-SemiBoldItalic.woff') format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -131,7 +131,7 @@
   font-weight: 700;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-BoldItalic.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-BoldItalic.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-BoldItalic.woff') format('woff');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -141,7 +141,7 @@
   font-weight: 700;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-BoldItalic.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-BoldItalic.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-BoldItalic.woff') format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -152,7 +152,7 @@
   font-weight: 800;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-ExtraBoldItalic.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-ExtraBoldItalic.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-ExtraBoldItalic.woff') format('woff');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -162,7 +162,7 @@
   font-weight: 800;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-ExtraBoldItalic.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-ExtraBoldItalic.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-ExtraBoldItalic.woff') format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -173,7 +173,7 @@
   font-weight: 900;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-BlackItalic.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-BlackItalic.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-BlackItalic.woff') format('woff');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -183,7 +183,7 @@
   font-weight: 900;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-BlackItalic.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-BlackItalic.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-BlackItalic.woff') format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -194,7 +194,7 @@
   font-weight: 100;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-Thin.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-Thin.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-Thin.woff') format('woff');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -204,7 +204,7 @@
   font-weight: 100;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-Thin.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-Thin.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-Thin.woff') format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -215,7 +215,7 @@
   font-weight: 200;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-ExtraLight.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-ExtraLight.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-ExtraLight.woff') format('woff');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -225,7 +225,7 @@
   font-weight: 200;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-ExtraLight.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-ExtraLight.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-ExtraLight.woff') format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -236,7 +236,7 @@
   font-weight: 300;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-Light.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-Light.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-Light.woff') format('woff');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -246,7 +246,7 @@
   font-weight: 300;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-Light.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-Light.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-Light.woff') format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -257,7 +257,7 @@
   font-weight: 400;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-Regular.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-Regular.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-Regular.woff') format('woff');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -267,7 +267,7 @@
   font-weight: 400;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-Regular.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-Regular.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-Regular.woff') format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -278,7 +278,7 @@
   font-weight: 500;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-Medium.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-Medium.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-Medium.woff') format('woff');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -288,7 +288,7 @@
   font-weight: 500;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-Medium.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-Medium.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-Medium.woff') format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -299,7 +299,7 @@
   font-weight: 600;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-SemiBold.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-SemiBold.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-SemiBold.woff') format('woff');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -309,7 +309,7 @@
   font-weight: 600;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-SemiBold.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-SemiBold.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-SemiBold.woff') format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -320,7 +320,7 @@
   font-weight: 700;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-Bold.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-Bold.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-Bold.woff') format('woff');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -330,7 +330,7 @@
   font-weight: 700;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-Bold.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-Bold.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-Bold.woff') format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -341,7 +341,7 @@
   font-weight: 800;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-ExtraBold.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-ExtraBold.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-ExtraBold.woff') format('woff');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -351,7 +351,7 @@
   font-weight: 800;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-ExtraBold.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-ExtraBold.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-ExtraBold.woff') format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -362,7 +362,7 @@
   font-weight: 900;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-Black.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-Black.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-Black.woff') format('woff');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 /* latin */
@@ -372,6 +372,6 @@
   font-weight: 900;
   font-display: swap;
   src: url('../fonts/WorkSans/static/WOFF2/WorkSans-Black.woff2') format('woff2'),
-       url('../fonts/WorkSans/static/WOFF2/WorkSans-Black.woff') format('woff');
+       url('../fonts/WorkSans/static/WOFF/WorkSans-Black.woff') format('woff');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }

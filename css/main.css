@@ -6,6 +6,7 @@
 
 body {
   font-family : Work Sans, sans-serif;
+  line-height: 1.2;
 }
 
 #main {
@@ -25,8 +26,7 @@ body {
 }
 
 #interface .title {
-  flex: 1 0 auto;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 
 #interface .tools {
@@ -60,9 +60,18 @@ body {
 
 /* Typography */
 
-.small {
-  font-size: .85rem;
-}
+.size-big { font-size: 1.20rem; }
+.size-small { font-size: 0.85rem; }
+
+.weight-thin { font-weight: 100; }
+.weight-extralight { font-weight: 200; }
+.weight-light { font-weight: 300; }
+.weight-regular { font-weight: 400; }
+.weight-medium { font-weight: 500; }
+.weight-semibold { font-weight: 600; }
+.weight-bold { font-weight: 700; }
+.weight-extrabold { font-weight: 800; }
+.weight-black { font-weight: 900; }
 
 /* Cartography */
 
