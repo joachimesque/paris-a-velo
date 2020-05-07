@@ -9,9 +9,15 @@ let _hasBeenDragged = false;
 document.addEventListener("mousedown", () => (_hasBeenDragged = false));
 
 const addClickEvent = (element, callback) => {
-  element.addEventListener("click", () => {
-    return !_hasBeenDragged && callback();
-  });
+  if (isTouchEnabled()) {
+    element.addEventListener("touch", () => {
+      return callback();
+    });
+  } else {
+    element.addEventListener("click", () => {
+      return !_hasBeenDragged && callback();
+    });
+  }
 };
 
 svgElement.addEventListener("click", event => {
@@ -70,19 +76,22 @@ document.fonts.ready.then(function(fontFaceSet) {
   });
 
   // CREATE VORONOÏ MESH
+  // limit this option to Desktop users (determined by touch event capacity)
+  // to save some performance and remove clickability on scroll
+  if (!isTouchEnabled()) {
+    const pointsToDelaunate = [];
 
-  const pointsToDelaunate = [];
+    Object.keys(data.points).forEach(point =>
+      pointsToDelaunate.push([data.points[point].x, data.points[point].y])
+    );
 
-  Object.keys(data.points).forEach(point =>
-    pointsToDelaunate.push([data.points[point].x, data.points[point].y])
-  );
+    const delaunay = d3.Delaunay.from(pointsToDelaunate);
+    const voronoi = delaunay.voronoi([0, 0, 1280, 960]);
 
-  const delaunay = d3.Delaunay.from(pointsToDelaunate);
-  const voronoi = delaunay.voronoi([0, 0, 1280, 960]);
-
-  Object.keys(data.points).forEach((point, index) =>
-    drawPolygon(point, voronoi.cellPolygon(index))
-  );
+    Object.keys(data.points).forEach((point, index) =>
+      drawPolygon(point, voronoi.cellPolygon(index))
+    );
+  }
 
   // MAP BOX
   const container = document.getElementById("container");

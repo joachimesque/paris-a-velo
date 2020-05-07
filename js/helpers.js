@@ -76,3 +76,6 @@ const arrayRemoveValue = (array, value) => {
   return array;
 };
 
+// detect touch screens
+
+const isTouchEnabled = () => ('ontouchstart' in window || navigator.maxTouchPoints > 0)
