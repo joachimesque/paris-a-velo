@@ -1612,7 +1612,6 @@ const data = {
     },
   ],
   points: {
-    "Château de Vincennes": { x: 990, y: 654 },
     Convention: { x: 475, y: 699 },
     "Croix de Chavaux": { x: 993, y: 582 },
     "Gare Montparnasse": { x: 562, y: 654 },
@@ -1693,5 +1692,6 @@ const data = {
     "Le Bourget": { x: 963, y: 105 },
     "Carrefour des Bourguignons": {x: 417, y: 238},
     "Mairie de Saint-Cloud": {x: 189, y: 662},
+    "Château de Vincennes":  { x: 991, y: 643 },
   },
 };
