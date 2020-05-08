@@ -118,6 +118,7 @@ p + p {
 
 .size-big { font-size: 1.20rem; }
 .size-small, small { font-size: 0.85rem; }
+.size-smallest { font-size: .70em; }
 
 .weight-thin { font-weight: 100; }
 .weight-extralight { font-weight: 200; }
@@ -128,6 +129,11 @@ strong, .weight-semibold { font-weight: 600; }
 .weight-bold { font-weight: 700; }
 .weight-extrabold { font-weight: 800; }
 .weight-black { font-weight: 900; }
+
+abbr {
+  text-decoration-color: hsl(240, 25%, 26.7%, .3);
+}
+
 
 /* Cartography */
 
@@ -226,8 +232,6 @@ svg.trajectoryMode .numberText.isSelected {
   opacity: 1;
 }
 
-
-
 .numberText {
   fill: #333;
   stroke: rgba(255,255,255, .5);
@@ -284,6 +288,19 @@ button:focus {
 button:active {
   color: #FFF;
   background-color: #113 !important;
+}
+
+button.link {
+  background: none;
+  padding: 0 .2em;
+  color: #335;
+  text-decoration: underline;
+  text-decoration-color: #335;
+  border-radius: 2px;
+}
+button.link:hover,
+button.link:focus {
+  text-decoration-color: #557;
 }
 
 #mapControls button:first-child {
