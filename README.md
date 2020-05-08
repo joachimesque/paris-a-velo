@@ -1,6 +1,6 @@
 # Paris à vélo 🚲
  
-<img src="https://joachimesque.github.io/paris-velo-map/img/opengraph.jpg" width="300"/>
+<img src="https://joachimesque.github.io/paris-a-velo/img/opengraph.jpg" width="300"/>
 
 Paris à vélo est une carte de Paris et de la petite couronne, montrant comme seules informations les temps de parcours à vélo entre divers points d’intérêt de la région parisienne.
 
