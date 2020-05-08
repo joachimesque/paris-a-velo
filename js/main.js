@@ -1,6 +1,8 @@
 const clicCoordinatesElement = document.getElementById("clicCoordinates");
 const svgElement = document.querySelector('svg');
 const svgViewbox = svgElement.viewBox.baseVal;
+const lineMap = new Object();
+const pointsMap = new Object();
 
 // GLOBAL EVENT LISTENERS
 
@@ -31,6 +33,10 @@ document.fonts.ready.then(function(fontFaceSet) {
 
   // points
   Object.keys(data.points).forEach(point => {
+    // build object of contiguous
+    pointsMap[point] = [];
+
+    // draw map points
     drawPoint(data.points[point], point);
   });
 
@@ -43,6 +49,11 @@ document.fonts.ready.then(function(fontFaceSet) {
   
   // lines
   data.lines.forEach((line, index) => {
+    // populate pointsMap object for contiguous screening
+    pointsMap[line.start].push(index);
+    pointsMap[line.end].push(index);
+
+    // draw map elements
     if (line.difficulty === 0) {
       drawNumber({
         start: data.points[line.start],
@@ -50,6 +61,7 @@ document.fonts.ready.then(function(fontFaceSet) {
         number: line.time,
         align: line.align,
         displayMin: line.displayMin,
+        line: index,
       });
       drawLine({
         start: data.points[line.start],
@@ -65,6 +77,7 @@ document.fonts.ready.then(function(fontFaceSet) {
           bottom: line.difficulty > 0 ? line.times.easy : line.times.hard,
         },
         displayMin: line.displayMin,
+        line: index,
       });
       drawDoubleLine({
         start: data.points[line.start],
@@ -78,6 +91,7 @@ document.fonts.ready.then(function(fontFaceSet) {
   // CREATE VORONOÏ MESH
   // limit this option to Desktop users (determined by touch event capacity)
   // to save some performance and remove clickability on scroll
+
   if (!isTouchEnabled()) {
     const pointsToDelaunate = [];
 

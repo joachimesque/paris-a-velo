@@ -117,14 +117,14 @@ p + p {
 }
 
 .size-big { font-size: 1.20rem; }
-.size-small { font-size: 0.85rem; }
+.size-small, small { font-size: 0.85rem; }
 
 .weight-thin { font-weight: 100; }
 .weight-extralight { font-weight: 200; }
 .weight-light { font-weight: 300; }
 .weight-regular { font-weight: 400; }
 .weight-medium { font-weight: 500; }
-.weight-semibold { font-weight: 600; }
+strong, .weight-semibold { font-weight: 600; }
 .weight-bold { font-weight: 700; }
 .weight-extrabold { font-weight: 800; }
 .weight-black { font-weight: 900; }
@@ -193,15 +193,40 @@ svg {
 .lineArrow__easy {
   fill: #06F;
 }
-.line__selected.line__regular,
-.line__selected .line__hard,
-.line__selected .line__easy {
-  stroke: #333;
+.isSelected.line__regular {
+  stroke: #936;
+  stroke-width: 9px;
 }
-.line__selected .lineArrow__hard,
-.line__selected .lineArrow__easy {
-  fill: #333;
+.isSelected .line__hard,
+.isSelected .line__easy {
+  stroke: #936;
+  stroke-width: 5px;
 }
+.isSelected .lineArrow__hard,
+.isSelected .lineArrow__easy {
+  fill: #936;
+  stroke-width: 5px;
+}
+
+#trajectory {
+  display: none;
+}
+
+.line__element, .numberText {
+  transition: opacity var(--transition-duration) ease;
+}
+
+svg.trajectoryMode .line__element,
+svg.trajectoryMode .numberText {
+  opacity: .2;
+}
+svg.trajectoryMode .possibleTrajectory,
+svg.trajectoryMode .line__element.isSelected,
+svg.trajectoryMode .numberText.isSelected {
+  opacity: 1;
+}
+
+
 
 .numberText {
   fill: #333;

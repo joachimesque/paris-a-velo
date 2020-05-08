@@ -1,6 +1,10 @@
 // CONSTS AND CONFIG
 
-const valueElement = document.getElementById("valeur");
+const timeValueElement = document.getElementById("time_value");
+const trajectoryElement = document.getElementById("trajectory");
+const trajectoryStartElement = document.getElementById("trajectory_start");
+const trajectoryEndElement = document.getElementById("trajectory_end");
+// const trajectoryListElement = document.getElementById("trajectory_end");
 const pointsGroup = document.getElementById("points");
 const linesGroup = document.getElementById("lines");
 const textGroup = document.getElementById("texts");
@@ -15,9 +19,11 @@ const singleLineWidth = 3;
 const doubleLineWidth = 2;
 const doubleLineGap = 1.5;
 const arrowLength = 4;
-const activePointsArray = new Array();
-const activeLinesArray = new Array();
+var activePointsArray = new Array();
+var activeLinesArray = new Array();
+var trajectoryExtremitiesArray = new Array();
 let timeCount = 0;
+
 
 // HELPERS & UTILS
 
@@ -38,6 +44,44 @@ const activePoints = new Proxy(activePointsArray, {
   },
 });
 
+const trajectoryExtremities = new Proxy(trajectoryExtremitiesArray, {
+  set: (target, key, value) => {
+    target[key] = value;
+
+    // remove possible lines
+    document.querySelectorAll('.possibleTrajectory')
+      .forEach((line) => line.classList.remove('possibleTrajectory'));
+
+
+    // display possible lines if not on a round trip
+    if (target[0] !== target[1]) {
+      target.forEach((trajectoryExtremity) => {
+        const possibleLines = pointsMap[trajectoryExtremity];
+        possibleLines
+          .forEach((line) => {
+            document.querySelectorAll(`#line__${line}, #text__${line}`)
+              .forEach((element) => element.classList.add('possibleTrajectory'));
+          }
+        );
+      });
+    }
+
+    // disable trajectoryMode if trajectory array is empty
+    if(target.length === 0) {
+      svgElement.classList.remove('trajectoryMode')
+      trajectoryElement.style.display = 'none';
+      return true;
+    }
+
+    // enable trajectoryMode if not
+    svgElement.classList.add('trajectoryMode')
+    trajectoryElement.style.display = 'block';
+    trajectoryStartElement.innerHTML = trajectoryExtremitiesArray[0];
+    trajectoryEndElement.innerHTML = trajectoryExtremitiesArray[1];
+    return true;
+  },
+});
+
 // change handlers
 const handleLineCountChange = () => {
   timeCount = 0;
@@ -47,10 +91,54 @@ const handleLineCountChange = () => {
   const timeDisplay = timeCount > 60
     ? `${hourCount} heure${hourCount > 1 ? 's' : ''} ${timeCount % 60}`
     : timeCount
-  valueElement.innerHTML = timeDisplay;
+  timeValueElement.innerHTML = timeDisplay;
 };
 
 const handlePointsCountChange = () => {};
+
+const setExtremitiesFromLine = (line) => {
+  const extremityIndexOfStart = trajectoryExtremities.indexOf(data.lines[line].start);
+  const extremityIndexOfEnd = trajectoryExtremities.indexOf(data.lines[line].end);
+
+  // if you're writing the first
+  if (trajectoryExtremities.length === 0) {
+    trajectoryExtremities.push(data.lines[line].start, data.lines[line].end);
+    return true;
+  } 
+
+  if (trajectoryExtremities[0] === trajectoryExtremities[1]) {
+    // if you're trying to remove a segment from a round trajectory
+    if (activeLinesArray.indexOf(line) >= 0) {
+      trajectoryExtremities[0] = data.lines[line].start;
+      trajectoryExtremities[1] = data.lines[line].end;
+      return true;
+    }
+
+    // if you're trying to add a segment to a round trajectory
+    return false;
+  }
+
+  // if you're trying to remove a lone segment
+  if (extremityIndexOfStart >= 0 && extremityIndexOfEnd >= 0) {
+    if (activeLinesArray.length === 1) {
+      trajectoryExtremities.pop();
+      trajectoryExtremities.pop();
+      return true;
+    }
+  }
+
+  if (extremityIndexOfStart >= 0) {
+    trajectoryExtremities[extremityIndexOfStart] = data.lines[line].end;
+    return true;
+  }
+
+  if (extremityIndexOfEnd >= 0) {
+    trajectoryExtremities[extremityIndexOfEnd] = data.lines[line].start;
+    return true;
+  }
+
+  return false;
+};
 
 // DOM utils
 const setAttributes = (el, attrs) => {
@@ -100,7 +188,9 @@ const getLineAngle = ({ start, end }) => {
 const highlightPoint = point => {
   const targetPoint = document.getElementById(`placePoint_${slugify(point)}`);
   const targetText = document.getElementById(`placeName_${slugify(point)}`);
-  if (!targetPoint || !targetText || arrayHasValue(activePoints, point)) return;
+  if (!targetPoint || !targetText) return; // point not existing (is it possible?)
+  if (arrayHasValue(activePoints, point)) return; // point already in list
+
   arrayAddValue(activePoints, point);
   targetPoint.classList.add("placePoint--active");
   targetText.classList.add("placeName--active");
@@ -108,8 +198,9 @@ const highlightPoint = point => {
 const unlightPoint = point => {
   const targetPoint = document.getElementById(`placePoint_${slugify(point)}`);
   const targetText = document.getElementById(`placeName_${slugify(point)}`);
-  if (!targetPoint || !targetText || !arrayHasValue(activePoints, point))
-    return;
+  if (!targetPoint || !targetText) return;
+  if (!arrayHasValue(activePoints, point)) return;
+
   arrayRemoveValue(activePoints, point);
   targetPoint.classList.remove("placePoint--active");
   targetText.classList.remove("placeName--active");
@@ -122,17 +213,52 @@ const togglePoint = point => {
   return highlightPoint(point);
 };
 
+const unlightLine = line => {
+  const targetElements = document.querySelectorAll(
+    `#line__${line}, #text__${line}, #text__${line}__top, #text__${line}__bottom`
+  );
+
+  if (!targetElements) return;
+
+  arrayRemoveValue(activeLines, line);
+  targetElements.forEach((element) => {
+    element.classList.remove("isSelected");
+  });
+}
+
 const toggleLine = line => {
-  const targetLine = document.getElementById(`line__${line}`);
-  if (!targetLine) return;
+  const targetElements = document.querySelectorAll(
+    `#line__${line}, #text__${line}, #text__${line}__top, #text__${line}__bottom`
+  );
+
+  if (!targetElements) return;
   if (arrayHasValue(activeLines, line)) {
-    arrayRemoveValue(activeLines, line);
-    targetLine.classList.remove("line__selected");
+    const isLineRemoveable = setExtremitiesFromLine(line);
+    if(isLineRemoveable) {
+      arrayRemoveValue(activeLines, line);
+      targetElements.forEach((element) => {
+        element.classList.remove("isSelected");
+      });
+    }
   } else {
-    arrayAddValue(activeLines, line);
-    targetLine.classList.add("line__selected");
+    const isLineAvailable = setExtremitiesFromLine(line);
+    if (isLineAvailable) {
+      arrayAddValue(activeLines, line);
+      targetElements.forEach((element) => {
+        element.classList.add("isSelected");
+      });
+    }
   }
 };
+
+const disableAllLines = () => {
+  if (activeLinesArray.length > 0) {
+    trajectoryExtremities.pop();
+    trajectoryExtremities.pop();
+    const arrayToDisable = [...activeLinesArray]
+    arrayToDisable.forEach((line) => unlightLine(line));
+  }
+}
 
 // DRAWING METHODS
 
@@ -228,7 +354,7 @@ const drawLine = ({ start, end, index }) => {
     x2: end.x,
     y1: start.y,
     y2: end.y,
-    class: "line__regular",
+    class: "line__element line__regular",
     "stroke-width": singleLineWidth,
   });
   linesGroup.appendChild(newLine);
@@ -310,7 +436,7 @@ const drawDoubleLine = ({ start, end, difficulty, index }) => {
 
   setAttributes(newGroup, {
     id: `line__${index}`,
-    class: "line__group",
+    class: "line__element line__group",
     transform: `rotate(${lineAngle} ${lineCenter.x} ${lineCenter.y}) translate(${lineCenter.x} ${lineCenter.y})`,
   });
 
@@ -340,7 +466,7 @@ const drawLineZone = ({ start, end, index }) => {
   addClickEvent(newLine, () => toggleLine(index));
 };
 
-const drawNumber = ({ start, end, number, align, displayMin }) => {
+const drawNumber = ({ start, end, number, align, displayMin, line }) => {
   const lineCenter = getCenter({ start, end });
   const newText = document.createElementNS(
     "http://www.w3.org/2000/svg",
@@ -358,6 +484,7 @@ const drawNumber = ({ start, end, number, align, displayMin }) => {
   const translateTransform = `translate(0 ${align === "top" ? -5 : 12})`;
 
   setAttributes(newText, {
+    id: `text__${line}`,
     x: lineCenter.x,
     y: lineCenter.y,
     "text-anchor": "middle",
@@ -368,7 +495,7 @@ const drawNumber = ({ start, end, number, align, displayMin }) => {
   textGroup.appendChild(newText);
 };
 
-const drawDoubleNumber = ({ start, end, numbers, displayMin }) => {
+const drawDoubleNumber = ({ start, end, numbers, displayMin, line }) => {
   const lineCenter = getCenter({ start, end });
   let rotateAngle = getLineAngle({ start, end }) + 90;
   if (rotateAngle > 90) {
@@ -395,6 +522,7 @@ const drawDoubleNumber = ({ start, end, numbers, displayMin }) => {
   newText2.appendChild(textNode2);
 
   setAttributes(newText1, {
+    id: `text__${line}__top`,
     x: lineCenter.x,
     y: lineCenter.y,
     "text-anchor": "start",
@@ -402,6 +530,7 @@ const drawDoubleNumber = ({ start, end, numbers, displayMin }) => {
     class: "numberText numberText--top",
   });
   setAttributes(newText2, {
+    id: `text__${line}__bottom`,
     x: lineCenter.x,
     y: lineCenter.y,
     "text-anchor": "end",
