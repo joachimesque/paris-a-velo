@@ -10,7 +10,7 @@ Les temps de trajets sont renseignés au début à titre indicatif, mais sont de
 
 ## Comment aider ?
 
-Pour participer à améliorer cette carte, toutes les suggestions sont acceptées. La meilleure manière de proposer un nouveau point d’intérêt, un nouveau trajet ou un nouveau timing, c’est d'ouvrir un ticket (onglet _Issues_ puis bouton vert—il faut avoir un compte). Il est aussi possible de répondre aux fils dédiés sur le [Fediverse](https://boitam.eu/@joachim/104122684640655166) ou sur Twitter.
+Pour participer à améliorer cette carte, toutes les suggestions sont acceptées. La meilleure manière de proposer un nouveau point d’intérêt, un nouveau trajet ou un nouveau timing, c’est d'ouvrir un ticket (onglet _Issues_ puis bouton vert—il faut avoir un compte). Il est aussi possible de répondre aux fils dédiés sur le [Fediverse](https://boitam.eu/@joachim/104122684640655166) ou sur [Twitter](https://twitter.com/joachimesque/status/1258144151658512385).
 
 **Pour proposer un point d’intérêt**\
 Lorsqu’on clique sur la carte, un texte apparait dans la colonne de gauche, `clic au point {x:xxx, y: yyy}`, où `x` et `y` sont les coordonnées du point sur la carte. Copiez ces coordonnées dans un message où il faudra aussi renseigner le nom du lieu proposé, et si possible expliquer sa pertinence. Évidemment on va éviter les lieux "Chez moi lol", mais on va aussi limiter le nombre de lieux pour ne pas rendre la carte trop dense.
