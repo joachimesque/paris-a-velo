@@ -33,6 +33,14 @@
         <div class="tools">
           <p class="size-small">
             Clique sur les pastilles des lieux pour afficher ou masquer leur nom.
+            <br>
+            <button id="button__highlightAllPoints" class="size-smaller link" onclick="highlightAllPoints();">
+              tout afficher
+            </button>
+            <button id="button__unlightAllPoints" class="size-smaller link" onclick="unlightAllPoints();">
+              tout masquer
+            </button>
+
           </p>
           <p class="size-small">
             Clique sur les segments de ton trajet pour voir la durée totale.
@@ -50,10 +58,10 @@
               <abbr title="minutes">min</abbr>
             </strong>
             <br />
-            <button class="size-smallest link" onclick="trajectoryExtremities.reverse();">
+            <button class="size-smaller link" onclick="trajectoryExtremities.reverse();">
               inverser
             </button>
-            <button class="size-smallest link" onclick="disableAllLines();">
+            <button class="size-smaller link" onclick="disableAllLines();">
               réinitialiser
             </button>
           </p>

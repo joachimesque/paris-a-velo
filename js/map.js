@@ -4,7 +4,9 @@ const timeValueElement = document.getElementById("time_value");
 const trajectoryElement = document.getElementById("trajectory");
 const trajectoryStartElement = document.getElementById("trajectory_start");
 const trajectoryEndElement = document.getElementById("trajectory_end");
-// const trajectoryListElement = document.getElementById("trajectory_end");
+// const trajectoryListElement = document.getElementById("trajectory_list");
+const highlightAllPointsButton = document.getElementById("button__highlightAllPoints");
+const unlightAllPointsButton = document.getElementById("button__unlightAllPoints");
 const pointsGroup = document.getElementById("points");
 const linesGroup = document.getElementById("lines");
 const textGroup = document.getElementById("texts");
@@ -94,7 +96,16 @@ const handleLineCountChange = () => {
   timeValueElement.innerHTML = timeDisplay;
 };
 
-const handlePointsCountChange = () => {};
+const handlePointsCountChange = () => {
+  if(activePointsArray.length === Object.keys(data.points).length) {
+    highlightAllPointsButton.disabled = true;
+  } else if(activePointsArray.length === 0) {
+    return unlightAllPointsButton.disabled = true;
+  } else {
+    highlightAllPointsButton.disabled = false;
+    unlightAllPointsButton.disabled = false;
+  }
+};
 
 const setExtremitiesFromLine = (line) => {
   const extremityIndexOfStart = trajectoryExtremities.indexOf(data.lines[line].start);
@@ -185,6 +196,7 @@ const getLineAngle = ({ start, end }) => {
 };
 
 // event helpers
+
 const highlightPoint = point => {
   const targetPoint = document.getElementById(`placePoint_${slugify(point)}`);
   const targetText = document.getElementById(`placeName_${slugify(point)}`);
@@ -212,6 +224,14 @@ const togglePoint = point => {
   }
   return highlightPoint(point);
 };
+
+const highlightAllPoints = () => {
+  Object.keys(data.points).forEach(point => highlightPoint(point));
+}
+const unlightAllPoints = () => {
+  Object.keys(data.points).forEach(point => unlightPoint(point));
+}
+
 
 const unlightLine = line => {
   const targetElements = document.querySelectorAll(

@@ -34,7 +34,7 @@ body {
 }
 
 #interface .tools {
-  flex: 5 0 auto;
+  flex: 1 0 auto;
   margin-bottom: 1rem;
 }
 
@@ -113,12 +113,12 @@ a:hover {
 /* Typography */
 
 p + p {
-  margin-top: .5rem;
+  margin-top: 1rem;
 }
 
 .size-big { font-size: 1.20rem; }
 .size-small, small { font-size: 0.85rem; }
-.size-smallest { font-size: .70em; }
+.size-smaller { font-size: .70em; }
 
 .weight-thin { font-weight: 100; }
 .weight-extralight { font-weight: 200; }
@@ -133,7 +133,6 @@ strong, .weight-semibold { font-weight: 600; }
 abbr {
   text-decoration-color: hsl(240, 25%, 26.7%, .3);
 }
-
 
 /* Cartography */
 
@@ -301,6 +300,15 @@ button.link {
 button.link:hover,
 button.link:focus {
   text-decoration-color: #557;
+}
+button.link:disabled {
+  opacity: .7;
+  cursor: not-allowed;
+}
+button.link:hover:disabled,
+button.link:focus:disabled {
+  color: #335 !important;
+  background: transparent !important;
 }
 
 #mapControls button:first-child {
