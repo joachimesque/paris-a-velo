@@ -41,12 +41,12 @@ document.fonts.ready.then(function(fontFaceSet) {
   });
 
   // display default points or load saved points (TODO)
-  if(data.defaultPointsDisplayed != []) {
+  if (data.defaultPointsDisplayed != []) {
     data.defaultPointsDisplayed.forEach((pointToDisplay) => {
       highlightPoint(pointToDisplay);
     })
   }
-  
+
   // lines
   data.lines.forEach((line, index) => {
     // populate pointsMap object for contiguous screening
@@ -112,7 +112,7 @@ document.fonts.ready.then(function(fontFaceSet) {
   var beforePan;
 
   beforePan = function(oldPan, newPan) {
-    if(oldPan !== newPan) {
+    if (oldPan !== newPan) {
       _hasBeenDragged = true;
     }
     var stopHorizontal = false,
@@ -121,14 +121,12 @@ document.fonts.ready.then(function(fontFaceSet) {
       gutterWidth = container.clientWidth,
       gutterHeight = container.clientHeight,
       // Computed variables
-      leftLimit =
-        -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth,
+      leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth,
       rightLimit = sizes.width - gutterWidth - sizes.viewBox.x * sizes.realZoom,
-      topLimit =
-        -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) +
-        gutterHeight,
+      topLimit = -((sizes.viewBox.y + sizes.viewBox.height) * sizes.realZoom) +
+      gutterHeight,
       bottomLimit =
-        sizes.height - gutterHeight - sizes.viewBox.y * sizes.realZoom;
+      sizes.height - gutterHeight - sizes.viewBox.y * sizes.realZoom;
 
     customPan = {};
     customPan.x = Math.max(leftLimit, Math.min(rightLimit, newPan.x));
@@ -162,17 +160,17 @@ document.fonts.ready.then(function(fontFaceSet) {
   });
 
 
-  document.getElementById('mapControl__zoomPlus').addEventListener('click', function(ev){
+  document.getElementById('mapControl__zoomPlus').addEventListener('click', function(ev) {
     ev.preventDefault();
     panZoom.zoomIn();
   });
 
-  document.getElementById('mapControl__zoomMinus').addEventListener('click', function(ev){
+  document.getElementById('mapControl__zoomMinus').addEventListener('click', function(ev) {
     ev.preventDefault();
     panZoom.zoomOut();
   });
 
-  document.getElementById('mapControl__zoomReset').addEventListener('click', function(ev){
+  document.getElementById('mapControl__zoomReset').addEventListener('click', function(ev) {
     ev.preventDefault();
     panZoom.resetZoom();
     panZoom.center();
@@ -184,9 +182,9 @@ document.fonts.ready.then(function(fontFaceSet) {
   if (foldButton) {
     foldButton.addEventListener('click', () => {
       interfaceElement.classList.toggle('interface--isFolded');
-      foldButton.innerHTML = interfaceElement.classList.contains('interface--isFolded')
-        ? '↓'
-        : '×'
+      foldButton.innerHTML = interfaceElement.classList.contains('interface--isFolded') ?
+        '↓' :
+        '×'
 
       setTimeout(() => {
         panZoom.resize();
@@ -197,4 +195,3 @@ document.fonts.ready.then(function(fontFaceSet) {
   }
 
 });
-

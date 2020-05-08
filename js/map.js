@@ -18,8 +18,8 @@ const pointRadius = 6;
 const zonePointRadius = 18;
 const zoneLineWidth = 20;
 const singleLineWidth = 3;
-const doubleLineWidth = 2;
-const doubleLineGap = 1.5;
+const doubleLineWidth = 2.5;
+const doubleLineGap = 2;
 const arrowLength = 4;
 var activePointsArray = new Array();
 var activeLinesArray = new Array();
@@ -63,13 +63,12 @@ const trajectoryExtremities = new Proxy(trajectoryExtremitiesArray, {
           .forEach((line) => {
             document.querySelectorAll(`#line__${line}, #text__${line}`)
               .forEach((element) => element.classList.add('possibleTrajectory'));
-          }
-        );
+          });
       });
     }
 
     // disable trajectoryMode if trajectory array is empty
-    if(target.length === 0) {
+    if (target.length === 0) {
       svgElement.classList.remove('trajectoryMode')
       trajectoryElement.style.display = 'none';
       return true;
@@ -90,16 +89,16 @@ const handleLineCountChange = () => {
   activeLines.forEach(value => (timeCount += data.lines[value].time));
 
   const hourCount = Math.floor(timeCount / 60)
-  const timeDisplay = timeCount > 60
-    ? `${hourCount} heure${hourCount > 1 ? 's' : ''} ${timeCount % 60}`
-    : timeCount
+  const timeDisplay = timeCount > 60 ?
+    `${hourCount} heure${hourCount > 1 ? 's' : ''} ${timeCount % 60}` :
+    timeCount
   timeValueElement.innerHTML = timeDisplay;
 };
 
 const handlePointsCountChange = () => {
-  if(activePointsArray.length === Object.keys(data.points).length) {
+  if (activePointsArray.length === Object.keys(data.points).length) {
     highlightAllPointsButton.disabled = true;
-  } else if(activePointsArray.length === 0) {
+  } else if (activePointsArray.length === 0) {
     return unlightAllPointsButton.disabled = true;
   } else {
     highlightAllPointsButton.disabled = false;
@@ -115,7 +114,7 @@ const setExtremitiesFromLine = (line) => {
   if (trajectoryExtremities.length === 0) {
     trajectoryExtremities.push(data.lines[line].start, data.lines[line].end);
     return true;
-  } 
+  }
 
   if (trajectoryExtremities[0] === trajectoryExtremities[1]) {
     // if you're trying to remove a segment from a round trajectory
@@ -254,7 +253,7 @@ const toggleLine = line => {
   if (!targetElements) return;
   if (arrayHasValue(activeLines, line)) {
     const isLineRemoveable = setExtremitiesFromLine(line);
-    if(isLineRemoveable) {
+    if (isLineRemoveable) {
       arrayRemoveValue(activeLines, line);
       targetElements.forEach((element) => {
         element.classList.remove("isSelected");
@@ -353,12 +352,13 @@ const drawPoint = ({ x, y }, name) => {
   });
   newTextGroup.insertBefore(newTextBg, newText);
 
-  if(newTextBBox.width + x > svgViewbox.width + svgViewbox.x) {
+  if (newTextBBox.width + x > svgViewbox.width + svgViewbox.x) {
     setAttributes(newTextGroup, {
       transform: `translate(${x - newTextBBox.width} ${y})`,
     });
     setAttributes(newTextBg, {
       x: -pointRadius,
+      class: "placeName__bg placeName__bg--left_aligned",
     });
   }
 };

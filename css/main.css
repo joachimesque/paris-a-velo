@@ -1,9 +1,9 @@
 :root {
-  --transition-duration : .15s;
+  --transition-duration: .15s;
 }
 
 body {
-  font-family : Work Sans, sans-serif;
+  font-family: Work Sans, sans-serif;
   line-height: 1.2;
   color: #335;
   background: hsl(32.3, 17.3%, 85.3%);
@@ -24,7 +24,7 @@ body {
   flex-direction: column;
 }
 
-#interface > * {
+#interface>* {
   max-width: 30ch;
   margin: 0 auto;
 }
@@ -68,6 +68,7 @@ button.foldController {
     overflow: hidden;
     transition: max-height var(--transition-duration) ease;
   }
+
   #interface.interface--isFolded {
     max-height: 4rem;
   }
@@ -85,7 +86,7 @@ button.foldController {
     display: block;
     position: absolute;
     background: hsl(32.3, 17.3%, 85.3%);
-    border: 3px solid rgba(0,0,32,.4);
+    border: 3px solid rgba(0, 0, 32, .4);
     top: 0;
     height: 2rem;
     width: 3rem;
@@ -104,31 +105,68 @@ a {
   font-weight: bold;
   font-weight: 500;
   color: #002;
-  transition : color var(--transition-duration) ease;
+  transition: color var(--transition-duration) ease;
 }
+
 a:hover {
   color: #557;
 }
 
 /* Typography */
 
-p + p {
+p+p {
   margin-top: 1rem;
 }
 
-.size-big { font-size: 1.20rem; }
-.size-small, small { font-size: 0.85rem; }
-.size-smaller { font-size: .70em; }
+.size-big {
+  font-size: 1.20rem;
+}
 
-.weight-thin { font-weight: 100; }
-.weight-extralight { font-weight: 200; }
-.weight-light { font-weight: 300; }
-.weight-regular { font-weight: 400; }
-.weight-medium { font-weight: 500; }
-strong, .weight-semibold { font-weight: 600; }
-.weight-bold { font-weight: 700; }
-.weight-extrabold { font-weight: 800; }
-.weight-black { font-weight: 900; }
+.size-small,
+small {
+  font-size: 0.85rem;
+}
+
+.size-smaller {
+  font-size: .70em;
+}
+
+.weight-thin {
+  font-weight: 100;
+}
+
+.weight-extralight {
+  font-weight: 200;
+}
+
+.weight-light {
+  font-weight: 300;
+}
+
+.weight-regular {
+  font-weight: 400;
+}
+
+.weight-medium {
+  font-weight: 500;
+}
+
+strong,
+.weight-semibold {
+  font-weight: 600;
+}
+
+.weight-bold {
+  font-weight: 700;
+}
+
+.weight-extrabold {
+  font-weight: 800;
+}
+
+.weight-black {
+  font-weight: 900;
+}
 
 abbr {
   text-decoration-color: hsl(240, 25%, 26.7%, .3);
@@ -144,69 +182,83 @@ svg {
   height: inherit;
   min-height: inherit;
   max-height: inherit;
-  font-family : Work Sans, sans-serif;
+  font-family: Work Sans, sans-serif;
   font-weight: 600;
 }
 
 .placePoint {
-  transition : fill var(--transition-duration) ease;
+  transition: fill var(--transition-duration) ease;
 
-  stroke : #000;
-  stroke-width : 3px;
-  fill : #FFF;
+  stroke: #000;
+  stroke-width: 3px;
+  fill: #FFF;
 }
+
 .placePoint.placePoint--active {
-  stroke : #FFF;
-  filter: drop-shadow(2px 2px 0 rgba(0,0,0,.5));
+  stroke: #FFF;
+  filter: drop-shadow(0 2px 0 rgba(0, 0, 0, .5));
 }
 
 .placeName {
-  opacity : 0;
+  opacity: 0;
 }
 
 .placeName.placeName--active {
-  opacity : 1;
+  opacity: 1;
 }
 
 .placeName__text {
-  font-size : .75rem;
+  font-size: .75rem;
   stroke-width: 2px;
 }
 
 .placeName__bg {
-  fill : white;
-  filter: drop-shadow(2px 2px 0 rgba(0,0,0,.5));
+  fill: white;
+  filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, .5));
+}
+.placeName__bg.placeName__bg--left_aligned {
+  fill: white;
+  filter: drop-shadow(-2px 2px 0 rgba(0, 0, 0, .5));
 }
 
-.zoneVoronoi, .zonePoint, .zoneLine {
+.zoneVoronoi,
+.zonePoint,
+.zoneLine {
   opacity: 0;
-  cursor : pointer;
+  cursor: pointer;
 }
 
 .line__regular {
   stroke: #399;
 }
+
 .line__hard {
-  stroke: #F60;  
+  stroke: #F60;
 }
+
 .line__easy {
-  stroke: #06F;  
+  stroke: #06F;
 }
+
 .lineArrow__hard {
   fill: #F60;
 }
+
 .lineArrow__easy {
   fill: #06F;
 }
+
 .isSelected.line__regular {
   stroke: #936;
   stroke-width: 9px;
 }
+
 .isSelected .line__hard,
 .isSelected .line__easy {
   stroke: #936;
   stroke-width: 5px;
 }
+
 .isSelected .lineArrow__hard,
 .isSelected .lineArrow__easy {
   fill: #936;
@@ -217,7 +269,8 @@ svg {
   display: none;
 }
 
-.line__element, .numberText {
+.line__element,
+.numberText {
   transition: opacity var(--transition-duration) ease;
 }
 
@@ -225,6 +278,7 @@ svg.trajectoryMode .line__element,
 svg.trajectoryMode .numberText {
   opacity: .2;
 }
+
 svg.trajectoryMode .possibleTrajectory,
 svg.trajectoryMode .line__element.isSelected,
 svg.trajectoryMode .numberText.isSelected {
@@ -233,18 +287,18 @@ svg.trajectoryMode .numberText.isSelected {
 
 .numberText {
   fill: #333;
-  stroke: rgba(255,255,255, .5);
+  stroke: rgba(255, 255, 255, .5);
   stroke-width: 3px;
   paint-order: stroke;
-  font-size : .75rem;
+  font-size: .75rem;
 }
 
 .numberText.numberText--bottom {
-  font-size : .66rem;
+  font-size: .66rem;
 }
 
 .numberText.numberText--top {
-  font-size : .66rem;
+  font-size: .66rem;
 }
 
 /* Map controls */
@@ -254,7 +308,7 @@ svg.trajectoryMode .numberText.isSelected {
   top: 10px;
   display: flex;
   flex-direction: column;
-  background: rgba(0,0,32,.4);
+  background: rgba(0, 0, 32, .4);
   padding: 2px;
   border-radius: 6px;
   font-size: .8rem;
@@ -274,7 +328,7 @@ button {
   cursor: pointer;
   font-weight: 600;
   color: #002;
-  transition :
+  transition:
     background-color var(--transition-duration) ease,
     color var(--transition-duration) ease;
 }
@@ -284,6 +338,7 @@ button:focus {
   color: #FFF !important;
   background-color: #557 !important;
 }
+
 button:active {
   color: #FFF;
   background-color: #113 !important;
@@ -297,26 +352,29 @@ button.link {
   text-decoration-color: #335;
   border-radius: 2px;
 }
+
 button.link:hover,
 button.link:focus {
   text-decoration-color: #557;
 }
+
 button.link:disabled {
-  opacity: .7;
-  cursor: not-allowed;
+    opacity: .7;
+    cursor: not-allowed;
 }
+
 button.link:hover:disabled,
 button.link:focus:disabled {
-  color: #335 !important;
-  background: transparent !important;
+    color: #335 !important;
+    background: transparent !important;
 }
 
 #mapControls button:first-child {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
 }
 
 #mapControls button:last-child {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
 }
