@@ -4,7 +4,7 @@ const data = {
     "Montmartre",
     "Place de la République",
     "Place d’Italie",
-    "Notre Dame",
+    "Notre-Dame",
     "Gare Montparnasse",
     "Maison de la Radio",
     "Nation",
@@ -232,7 +232,7 @@ const data = {
     },
     {
       start: "Gare de Lyon",
-      end: "Notre Dame",
+      end: "Notre-Dame",
       difficulty: 0,
       displayMin: true,
       time: 9,
@@ -298,7 +298,7 @@ const data = {
     },
     {
       start: "Invalides",
-      end: "Notre Dame",
+      end: "Notre-Dame",
       difficulty: 0,
       displayMin: true,
       time: 12,
@@ -314,7 +314,7 @@ const data = {
     },
     {
       start: "Jardin du Luxembourg",
-      end: "Notre Dame",
+      end: "Notre-Dame",
       difficulty: 0,
       displayMin: true,
       time: 5,
@@ -383,7 +383,7 @@ const data = {
       align: null,
     },
     {
-      start: "Hôpital André Grégoire – La Boissière",
+      start: "Hôpital André-Grégoire – La Boissière",
       end: "Mairie de Romainville",
       difficulty: 0,
       displayMin: true,
@@ -392,7 +392,7 @@ const data = {
     },
     {
       start: "Croix de Chavaux",
-      end: "Hôpital André Grégoire – La Boissière",
+      end: "Hôpital André-Grégoire – La Boissière",
       difficulty: -1,
       displayMin: true,
       time: 15,
@@ -401,7 +401,7 @@ const data = {
     },
     {
       start: "Mairie de Rosny",
-      end: "Hôpital André Grégoire – La Boissière",
+      end: "Hôpital André-Grégoire – La Boissière",
       difficulty: -1,
       displayMin: true,
       time: 16,
@@ -525,7 +525,7 @@ const data = {
       align: "top",
     },
     {
-      start: "Hôpital Jean Verdier",
+      start: "Hôpital Jean-Verdier",
       end: "Mairie de Drancy",
       difficulty: 0,
       displayMin: true,
@@ -533,7 +533,7 @@ const data = {
       align: "top",
     },
     {
-      start: "Hôpital Jean Verdier",
+      start: "Hôpital Jean-Verdier",
       end: "Mairie de Bobigny",
       difficulty: 0,
       displayMin: true,
@@ -541,7 +541,7 @@ const data = {
       align: "top",
     },
     {
-      start: "Hôpital Jean Verdier",
+      start: "Hôpital Jean-Verdier",
       end: "Gare de Bondy",
       difficulty: 0,
       displayMin: true,
@@ -598,7 +598,7 @@ const data = {
       align: "top",
     },
     {
-      start: "Hôpital André Grégoire – La Boissière",
+      start: "Hôpital André-Grégoire – La Boissière",
       end: "Gare de Bondy",
       difficulty: 1,
       displayMin: true,
@@ -607,7 +607,7 @@ const data = {
       align: "top",
     },
     {
-      start: "Hôpital André Grégoire – La Boissière",
+      start: "Hôpital André-Grégoire – La Boissière",
       end: "Murs à Pêches – Les Ruffins",
       difficulty: 0,
       displayMin: true,
@@ -749,7 +749,7 @@ const data = {
       align: "top",
     },
     {
-      start: "Notre Dame",
+      start: "Notre-Dame",
       end: "Place de la République",
       difficulty: 0,
       displayMin: true,
@@ -757,7 +757,7 @@ const data = {
       align: "bottom",
     },
     {
-      start: "Notre Dame",
+      start: "Notre-Dame",
       end: "Bourse",
       difficulty: 0,
       displayMin: true,
@@ -765,7 +765,7 @@ const data = {
       align: "top",
     },
     {
-      start: "Notre Dame",
+      start: "Notre-Dame",
       end: "Place de la Bastille",
       difficulty: 0,
       displayMin: true,
@@ -773,7 +773,7 @@ const data = {
       align: "top",
     },
     {
-      start: "Notre Dame",
+      start: "Notre-Dame",
       end: "Place d’Italie",
       difficulty: 0,
       displayMin: true,
@@ -781,7 +781,7 @@ const data = {
       align: "top",
     },
     {
-      start: "Notre Dame",
+      start: "Notre-Dame",
       end: "Place Denfert-Rochereau",
       difficulty: 0,
       displayMin: true,
@@ -797,7 +797,7 @@ const data = {
       align: "top",
     },
     {
-      start: "Notre Dame",
+      start: "Notre-Dame",
       end: "Place de la Concorde",
       difficulty: 0,
       displayMin: true,
@@ -1624,7 +1624,7 @@ const data = {
     "Maison de la Radio": { x: 405, y: 612 },
     Montmartre: { x: 634, y: 424 },
     Nation: { x: 841, y: 634 },
-    "Notre Dame": { x: 674, y: 605 },
+    "Notre-Dame": { x: 674, y: 605 },
     "Belleville – Pyrénées": { x: 809, y: 481 },
     "Place Denfert-Rochereau": { x: 607, y: 714 },
     "Place de la Bastille": { x: 742, y: 606 },
@@ -1663,7 +1663,7 @@ const data = {
     "Mairie des Lilas": { x: 926, y: 453 },
     "Mairie de Romainville": { x: 997, y: 420 },
     "Mairie de Fontenay-sous-Bois": { x: 1123, y: 638 },
-    "Hôpital André Grégoire – La Boissière": { x: 1057, y: 472 },
+    "Hôpital André-Grégoire – La Boissière": { x: 1057, y: 472 },
     "Mairie de Rosny": { x: 1172, y: 491 },
     "Murs à Pêches – Les Ruffins": { x: 1105, y: 552 },
     "Mairie de Nogent-sur-Marne": { x: 1196, y: 686 },
@@ -1675,7 +1675,7 @@ const data = {
     "Noisy-le-Sec": { x: 1052, y: 386 },
     "Bobigny – Pantin – Raymond Queneau": { x: 953, y: 369 },
     "Mairie de Drancy": { x: 1023, y: 209 },
-    "Hôpital Jean Verdier": { x: 1147, y: 288 },
+    "Hôpital Jean-Verdier": { x: 1147, y: 288 },
     Bourse: { x: 645, y: 530 },
     "Hippodrome de Longchamp": { x: 264, y: 546 },
     Suresnes: { x: 203, y: 521 },
