@@ -27,4 +27,7 @@ C’est une infographie du Parisien : [Les temps de parcours à vélo dans Paris
 
 La typo utilisée s’appelle [Work Sans](https://github.com/weiweihuanghuang/Work-Sans), elle a été tracée par Wei Huang, et est distribuée sous license libre (c'est important).
 
+Une partie des données cartographiques utilisées (le dessin de la Seine par exemple) ainsi que certains contenus vectoriels dans les fichiers d’images sources sont issus d’[OpenStreetMap](https://www.openstreetmap.org) et sont partagés sous leur license originelle spécifique. Ces contenus sont sous © les contributeurs d’OpenStreetMap.
+
+
 fait à Montreuil 🍑 avec fierté
