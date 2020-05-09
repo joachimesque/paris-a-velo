@@ -50,9 +50,9 @@ const trajectoryExtremities = new Proxy(trajectoryExtremitiesArray, {
   set: (target, key, value) => {
     target[key] = value;
 
-    // remove possible lines
+    // remove possible elements
     document.querySelectorAll('.possibleTrajectory')
-      .forEach((line) => line.classList.remove('possibleTrajectory'));
+      .forEach((element) => element.classList.remove('possibleTrajectory'));
 
 
     // display possible lines if not on a round trip
@@ -61,7 +61,7 @@ const trajectoryExtremities = new Proxy(trajectoryExtremitiesArray, {
         const possibleLines = pointsMap[trajectoryExtremity];
         possibleLines
           .forEach((line) => {
-            document.querySelectorAll(`#line__${line}, #text__${line}`)
+            document.querySelectorAll(`#line__${line}, #text__${line}, #text__${line}__top, #text__${line}__bottom`)
               .forEach((element) => element.classList.add('possibleTrajectory'));
           });
       });

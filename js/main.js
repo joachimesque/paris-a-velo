@@ -190,7 +190,7 @@ document.fonts.ready.then(function(fontFaceSet) {
         panZoom.resize();
         panZoom.fit();
         panZoom.center();
-      }, 300);
+      }, 100);
     })
   }
 

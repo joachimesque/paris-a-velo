@@ -64,13 +64,20 @@ button.foldController {
 
   #interface {
     padding: 1rem;
-    max-height: 100vh;
     overflow: hidden;
-    transition: max-height var(--transition-duration) ease;
   }
 
-  #interface.interface--isFolded {
-    max-height: 4rem;
+  #interface .tools {
+    margin-top: 1rem;
+  }
+
+  #interface.interface--isFolded .tools,
+  #interface.interface--isFolded .bottom {
+    display: none;
+  }
+
+  #interface .title {
+    margin-bottom: 0;
   }
 
   #container {
@@ -78,8 +85,8 @@ button.foldController {
     grid-column: 1;
   }
 
-  .tools {
-    display: none;
+  p + p {
+    margin-top: .3rem;
   }
 
   button.foldController {
