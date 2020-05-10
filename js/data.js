@@ -1577,7 +1577,7 @@ const data = {
     {
       start: "Roissy ↑",
       end: "Le Bourget",
-      difficulty: 1,
+      difficulty: -1,
       displayMin: true,
       time: 45,
       times: {hard: 52, easy: 38},
