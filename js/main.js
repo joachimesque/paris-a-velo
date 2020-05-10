@@ -1,4 +1,3 @@
-const clicCoordinatesElement = document.getElementById("clicCoordinates");
 const svgElement = document.querySelector('svg');
 const svgViewbox = svgElement.viewBox.baseVal;
 const lineMap = new Object();
@@ -23,8 +22,9 @@ const addClickEvent = (element, callback) => {
 };
 
 svgElement.addEventListener("click", event => {
-  clicCoordinatesElement.innerHTML = `clic au point {x: ${event.layerX}, y: ${event.layerY}}`;
-  console.log(`clic au point {x: ${event.layerX}, y: ${event.layerY}}`);
+  // event.layerX and event.layerY are non-standard and implemented differently
+  // the data returned is different between Chrome and Firefox
+  console.log(`Firefox only: clic au point {x: ${event.layerX}, y: ${event.layerY}}`);
 });
 
 document.fonts.ready.then(function(fontFaceSet) {
