@@ -890,7 +890,7 @@ const data = {
       difficulty: 1,
       displayMin: false,
       time: 7,
-      times: { easy: 16, hard: 8 },
+      times: { easy: 6, hard: 8 },
       align: null,
     },
     {
