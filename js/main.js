@@ -8,11 +8,12 @@ const pointsMap = new Object();
 let _hasBeenDragged = false;
 
 document.addEventListener("mousedown", () => (_hasBeenDragged = false));
+document.addEventListener("touchstart", () => (_hasBeenDragged = false));
 
 const addClickEvent = (element, callback) => {
   if (isTouchEnabled()) {
-    element.addEventListener("touch", () => {
-      return callback();
+    element.addEventListener("touchend", () => {
+      return !_hasBeenDragged && callback();
     });
   } else {
     element.addEventListener("click", () => {
@@ -24,7 +25,7 @@ const addClickEvent = (element, callback) => {
 svgElement.addEventListener("click", event => {
   // event.layerX and event.layerY are non-standard and implemented differently
   // the data returned is different between Chrome and Firefox
-  console.log(`Firefox only: clic au point {x: ${event.layerX}, y: ${event.layerY}}`);
+  console.info(`Firefox only: clic au point {x: ${event.layerX}, y: ${event.layerY}}`);
 });
 
 document.fonts.ready.then(function(fontFaceSet) {

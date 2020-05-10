@@ -61,7 +61,7 @@ const trajectoryExtremities = new Proxy(trajectoryExtremitiesArray, {
         const possibleLines = pointsMap[trajectoryExtremity];
         possibleLines
           .forEach((line) => {
-            document.querySelectorAll(`#line__${line}, #text__${line}, #text__${line}__top, #text__${line}__bottom`)
+            document.querySelectorAll(`#line__${line}, #text__${line}, #text__${line}__top, #text__${line}__bottom, #lineZone__${line}`)
               .forEach((element) => element.classList.add('possibleTrajectory'));
           });
       });

@@ -181,12 +181,12 @@ abbr {
 
 /* Cartography */
 
-svg {
+svg#map {
   display: inline;
-  width: inherit;
+  width: 100%;
   min-width: inherit;
   max-width: inherit;
-  height: inherit;
+  height: 100%;
   min-height: inherit;
   max-height: inherit;
   font-family: Work Sans, sans-serif;
@@ -276,20 +276,26 @@ svg {
   display: none;
 }
 
-.line__element,
-.numberText {
-  transition: opacity var(--transition-duration) ease;
-}
-
-svg.trajectoryMode .line__element,
-svg.trajectoryMode .numberText {
+svg#map.trajectoryMode .line__element,
+svg#map.trajectoryMode .numberText {
   opacity: .2;
 }
 
-svg.trajectoryMode .possibleTrajectory,
-svg.trajectoryMode .line__element.isSelected,
-svg.trajectoryMode .numberText.isSelected {
+svg#map.trajectoryMode .zoneLine {
+  display: none;
+}
+svg#map.trajectoryMode .zoneLine.possibleTrajectory {
+  display: unset;
+}
+
+svg#map.trajectoryMode .possibleTrajectory:not(.zoneLine),
+svg#map.trajectoryMode .line__element.isSelected,
+svg#map.trajectoryMode .numberText.isSelected {
   opacity: 1;
+}
+
+svg#map text {
+  pointer-events: none;
 }
 
 .numberText {
