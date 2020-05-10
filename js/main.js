@@ -1,3 +1,4 @@
+const containerElement = document.querySelector('#container');
 const svgElement = document.querySelector('svg');
 const svgViewbox = svgElement.viewBox.baseVal;
 const lineMap = new Object();
@@ -90,7 +91,6 @@ document.fonts.ready.then(function(fontFaceSet) {
   });
 
   // MAP BOX
-  const container = document.getElementById("container");
   var beforePan;
 
   beforePan = function(oldPan, newPan) {
@@ -100,8 +100,8 @@ document.fonts.ready.then(function(fontFaceSet) {
     var stopHorizontal = false,
       stopVertical = false,
       sizes = this.getSizes(),
-      gutterWidth = container.clientWidth,
-      gutterHeight = container.clientHeight,
+      gutterWidth = containerElement.clientWidth,
+      gutterHeight = containerElement.clientHeight,
       // Computed variables
       leftLimit = -((sizes.viewBox.x + sizes.viewBox.width) * sizes.realZoom) + gutterWidth,
       rightLimit = sizes.width - gutterWidth - sizes.viewBox.x * sizes.realZoom,
@@ -141,22 +141,63 @@ document.fonts.ready.then(function(fontFaceSet) {
     panZoom.center();
   });
 
-
+  // Zoom controls
   document.getElementById('mapControl__zoomPlus').addEventListener('click', function(ev) {
     ev.preventDefault();
     panZoom.zoomIn();
   });
-
   document.getElementById('mapControl__zoomMinus').addEventListener('click', function(ev) {
     ev.preventDefault();
     panZoom.zoomOut();
   });
-
   document.getElementById('mapControl__zoomReset').addEventListener('click', function(ev) {
     ev.preventDefault();
     panZoom.resetZoom();
     panZoom.center();
   });
+
+  // Pan controls
+  document.getElementById('mapControl__panLeft').addEventListener('click', function(ev) {
+    ev.preventDefault();
+    panZoom.panBy({x: 50, y: 0});
+  });
+  document.getElementById('mapControl__panRight').addEventListener('click', function(ev) {
+    ev.preventDefault();
+    panZoom.panBy({x: -50, y: 0});
+  });
+  document.getElementById('mapControl__panUp').addEventListener('click', function(ev) {
+    ev.preventDefault();
+    panZoom.panBy({x: 0, y: 50});
+  });
+  document.getElementById('mapControl__panDown').addEventListener('click', function(ev) {
+    ev.preventDefault();
+    panZoom.panBy({x: 0, y: -50});
+  });
+  document.getElementById('mapControl__panCenter').addEventListener('click', function(ev) {
+    ev.preventDefault();
+    panZoom.center();
+  });
+
+  containerElement.addEventListener('keyup', (event) => {
+    if(event.key === 'ArrowLeft') {
+      panZoom.panBy({x: 50, y: 0});
+    }
+    if(event.key === 'ArrowRight') {
+      panZoom.panBy({x: -50, y: 0});
+    }
+    if(event.key === 'ArrowUp') {
+      panZoom.panBy({x: 0, y: 50});
+    }
+    if(event.key === 'ArrowDown') {
+      panZoom.panBy({x: 0, y: -50});
+    }
+    if(event.key === '+') {
+      panZoom.zoomIn();
+    }
+    if(event.key === '-') {
+      panZoom.zoomOut();
+    }
+  })
 
   // MOBILE FOLD
   const interfaceElement = document.querySelector('#interface');
