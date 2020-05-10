@@ -492,7 +492,7 @@ const drawNumber = ({ start, end, number, align, displayMin, line }) => {
     "http://www.w3.org/2000/svg",
     "text"
   );
-  const min = displayMin ? " min" : "";
+  const min = displayMin !== false ? " min" : "";
   const textNode = document.createTextNode(number + min);
   newText.appendChild(textNode);
 
@@ -501,7 +501,7 @@ const drawNumber = ({ start, end, number, align, displayMin, line }) => {
     rotateAngle = rotateAngle - 180;
   }
   const rotateTransform = `rotate(${rotateAngle} ${lineCenter.x} ${lineCenter.y})`;
-  const translateTransform = `translate(0 ${align === "top" ? -5 : 12})`;
+  const translateTransform = `translate(0 ${align !== 'bottom' ? -5 : 12})`;
 
   setAttributes(newText, {
     id: `text__${line}`,
@@ -531,7 +531,7 @@ const drawDoubleNumber = ({ start, end, numbers, displayMin, line }) => {
     "http://www.w3.org/2000/svg",
     "text"
   );
-  const min = displayMin ? " min" : "";
+  const min = displayMin !== false ? " min" : "";
   const textNode1 = document.createTextNode(
     (rotateAngle < 0 ? numbers.top : numbers.bottom) + min
   );
