@@ -29,5 +29,10 @@ La typo utilisée s’appelle [Work Sans](https://github.com/weiweihuanghuang/Wo
 
 Une partie des données cartographiques utilisées (le dessin de la Seine par exemple) ainsi que certains contenus vectoriels dans les fichiers d’images sources sont issus d’[OpenStreetMap](https://www.openstreetmap.org) et sont partagés sous leur license originelle spécifique. Ces contenus sont sous © les contributeurs d’OpenStreetMap.
 
+### Contributions de timings
+
+[@pschtt](https://twitter.com/pschtt), [@yaaax](https://github.com/yaaax)
+
+---
 
 fait à Montreuil 🍑 avec fierté
