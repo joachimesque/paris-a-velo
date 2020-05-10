@@ -11,7 +11,6 @@ const pointsGroup = document.getElementById("points");
 const linesGroup = document.getElementById("lines");
 const textGroup = document.getElementById("texts");
 const nameGroup = document.getElementById("names");
-const voronoiGroup = document.getElementById("voronoi");
 const lineZonesGroup = document.getElementById("lineZones");
 const pointZonesGroup = document.getElementById("pointZones");
 const pointRadius = 6;
@@ -560,21 +559,4 @@ const drawDoubleNumber = ({ start, end, numbers, displayMin, line }) => {
 
   textGroup.appendChild(newText1);
   textGroup.appendChild(newText2);
-};
-
-const drawPolygon = (point, vertices) => {
-  const newPolygon = document.createElementNS(
-    "http://www.w3.org/2000/svg",
-    "polygon"
-  );
-
-  setAttributes(newPolygon, {
-    fill: "#FFF",
-    points: vertices,
-    class: "zoneVoronoi",
-  });
-
-  addClickEvent(newPolygon, () => togglePoint(point));
-
-  voronoiGroup.appendChild(newPolygon);
 };
