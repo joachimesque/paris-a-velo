@@ -180,10 +180,6 @@ abbr {
   text-decoration-color: hsl(240, 25%, 26.7%, .3);
 }
 
-.rotate90 {
-  transform: rotate(90deg);
-}
-
 /* Cartography */
 
 svg#map {
