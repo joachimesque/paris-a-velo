@@ -1675,7 +1675,7 @@ const data = {
       align: "top",
     },
     {
-      start: "Gonesse ↑",
+      start: "↑ Gonesse",
       end: "Le Bourget",
       difficulty: -1,
       displayMin: true,
@@ -2586,7 +2586,7 @@ const data = {
     "Le Blanc-Mesnil": {x: 1099, y: 118},
     "Mairie d’Aulnay-sous-Bois": {x: 1194, y: 155},
     "Villepinte ↗": {x: 1272, y: 28},
-    "Gonesse ↑": {x: 1024, y: 28},
+    "↑ Gonesse": {x: 1024, y: 28},
     "Villemomble": {x: 1244, y: 440},
     "Neuilly-Plaisance →": { x: 1272, y: 576 },
     "Le Perreux-sur-Marne": { x: 1272, y: 672 },
