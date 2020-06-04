@@ -1,8 +1,9 @@
+/*jshint esversion:6 */
 const containerElement = document.querySelector('#container');
 const svgElement = document.querySelector('svg');
 const svgViewbox = svgElement.viewBox.baseVal;
-const lineMap = new Object();
-const pointsMap = new Object();
+const lineMap = {};
+const pointsMap = {};
 
 // GLOBAL EVENT LISTENERS
 
@@ -46,7 +47,7 @@ document.fonts.ready.then(function(fontFaceSet) {
   if (data.defaultPointsDisplayed != []) {
     data.defaultPointsDisplayed.forEach((pointToDisplay) => {
       highlightPoint(pointToDisplay);
-    })
+    });
   }
 
   // lines
@@ -197,7 +198,7 @@ document.fonts.ready.then(function(fontFaceSet) {
     if(event.key === '-') {
       panZoom.zoomOut();
     }
-  })
+  });
 
   // MOBILE FOLD
   const interfaceElement = document.querySelector('#interface');
@@ -207,14 +208,14 @@ document.fonts.ready.then(function(fontFaceSet) {
       interfaceElement.classList.toggle('interface--isFolded');
       foldButton.innerHTML = interfaceElement.classList.contains('interface--isFolded') ?
         '↓' :
-        '×'
+        '×';
 
       setTimeout(() => {
         panZoom.resize();
         panZoom.fit();
         panZoom.center();
       }, 100);
-    })
+    });
   }
 
 });
