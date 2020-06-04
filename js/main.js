@@ -39,7 +39,7 @@ document.fonts.ready.then(function(fontFaceSet) {
     pointsMap[point] = [];
 
     // draw map points
-    drawPoint(data.points[point], point);
+    drawPoint(data.points[point], data.points[point].label || point);
   });
 
   // display default points or load saved points (TODO)
