@@ -300,7 +300,7 @@ const drawPoint = ({ x, y }, name, label) => {
     "http://www.w3.org/2000/svg",
     "rect"
   );
-  const newTextNode = document.createTextNode(name);
+  const newTextNode = document.createTextNode(label || name);
 
   // add point
   setAttributes(newPoint, {
