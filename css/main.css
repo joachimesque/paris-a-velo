@@ -237,6 +237,10 @@ svg#map {
   cursor: pointer;
 }
 
+.zonePoint:hover, .zoneLine:hover {
+  opacity: 0.1;
+}
+
 .line__regular {
   stroke: #399;
 }
