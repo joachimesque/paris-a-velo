@@ -325,15 +325,15 @@ svg#map .a_pied {
   stroke: rgba(255, 255, 255, .5);
   stroke-width: 3px;
   paint-order: stroke;
-  font-size: .75rem;
+  font-size: .5rem;
 }
 
 .numberText.numberText--bottom {
-  font-size: .66rem;
+  font-size: .6rem;
 }
 
 .numberText.numberText--top {
-  font-size: .66rem;
+  font-size: .6rem;
 }
 
 /* Map controls */
