@@ -361,18 +361,30 @@ const drawPoint = ({ x, y }, name, label) => {
   }
 };
 
-const drawLine = ({ start, end, index, className="" }) => {
+const drawLine = ({ start, end, index, className="", number=0 }) => {
   const newLine = document.createElementNS(
     "http://www.w3.org/2000/svg",
     "line"
   );
+
+  let lineLengthClass = "";
+  if (number && !className) {
+    if (number > 15) {
+      lineLengthClass = " line__long";
+    } else if (number > 7) {
+      lineLengthClass = " line__medium";
+    } else {
+      lineLengthClass = " line__short";
+    }
+  }
+
   setAttributes(newLine, {
     id: `line__${index}`,
     x1: start.x,
     x2: end.x,
     y1: start.y,
     y2: end.y,
-    class: "line__element line__regular " + className,
+    class: "line__element line__regular " + lineLengthClass + className,
     //"stroke-width": singleLineWidth,
   });
   linesGroup.appendChild(newLine);

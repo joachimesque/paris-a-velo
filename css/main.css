@@ -245,6 +245,18 @@ svg#map {
   stroke: #399;
 }
 
+.line__short {
+  stroke: #88d65b;
+}
+
+.line__medium {
+  stroke: #589933;
+}
+
+.line__long {
+  stroke: #3b552c;
+}
+
 .line__hard {
   stroke: #F60;
 }
