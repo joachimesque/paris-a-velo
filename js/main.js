@@ -70,6 +70,7 @@ document.fonts.ready.then(function(fontFaceSet) {
         start: data.points[line.start],
         end: data.points[line.end],
         index: index,
+        className: line.className
       });
     } else {
       drawDoubleNumber({
