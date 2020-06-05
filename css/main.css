@@ -314,6 +314,12 @@ svg#map .bateau {
   stroke-dasharray: 8 10;
 }
 
+svg#map .a_pied {
+  stroke: #be2ac3;
+  stroke-dasharray: 1 3;
+}
+
+
 .numberText {
   fill: #333;
   stroke: rgba(255, 255, 255, .5);
