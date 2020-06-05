@@ -361,7 +361,7 @@ const drawPoint = ({ x, y }, name, label) => {
   }
 };
 
-const drawLine = ({ start, end, index }) => {
+const drawLine = ({ start, end, index, className="" }) => {
   const newLine = document.createElementNS(
     "http://www.w3.org/2000/svg",
     "line"
@@ -372,12 +372,12 @@ const drawLine = ({ start, end, index }) => {
     x2: end.x,
     y1: start.y,
     y2: end.y,
-    class: "line__element line__regular",
+    class: "line__element line__regular " + className,
     "stroke-width": singleLineWidth,
   });
   linesGroup.appendChild(newLine);
 
-  drawLineZone({ start, end, index });
+  drawLineZone({ start, end, index, className });
 };
 
 const drawDoubleLine = ({ start, end, difficulty, index }) => {
@@ -463,7 +463,7 @@ const drawDoubleLine = ({ start, end, difficulty, index }) => {
   drawLineZone({ start, end, index });
 };
 
-const drawLineZone = ({ start, end, index }) => {
+const drawLineZone = ({ start, end, index, className="" }) => {
   const newLine = document.createElementNS(
     "http://www.w3.org/2000/svg",
     "line"
@@ -476,7 +476,7 @@ const drawLineZone = ({ start, end, index }) => {
     y2: end.y,
     stroke: "#555",
     "stroke-width": zoneLineWidth,
-    class: "zoneLine",
+    class: "zoneLine " + className,
   });
 
   lineZonesGroup.appendChild(newLine);
