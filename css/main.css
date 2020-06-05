@@ -196,14 +196,14 @@ svg#map {
 
 .placePoint {
   transition: fill var(--transition-duration) ease;
-
   stroke: #000;
-  stroke-width: 3px;
+  stroke-width: 1px;
   fill: #FFF;
 }
 
 .placePoint.placePoint--active {
   stroke: #FFF;
+  stroke-width: 3px;
   filter: drop-shadow(0 2px 0 rgba(0, 0, 0, .5));
 }
 
@@ -297,6 +297,12 @@ svg#map.trajectoryMode .numberText.isSelected {
 
 svg#map text {
   pointer-events: none;
+}
+
+svg#map .bateau {
+  stroke: #386896;
+  stroke-dasharray: 2 10;
+
 }
 
 .numberText {
