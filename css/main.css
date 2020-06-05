@@ -246,7 +246,7 @@ svg#map {
 }
 
 .line__short {
-  stroke: #88d65b;
+  stroke: #8aa765;
 }
 
 .line__medium {
@@ -275,19 +275,19 @@ svg#map {
 
 .isSelected.line__regular {
   stroke: #936;
-  stroke-width: 9px;
+  stroke-width: 4px;
 }
 
 .isSelected .line__hard,
 .isSelected .line__easy {
   stroke: #936;
-  stroke-width: 5px;
+  stroke-width: 3px;
 }
 
 .isSelected .lineArrow__hard,
 .isSelected .lineArrow__easy {
   fill: #936;
-  stroke-width: 5px;
+  stroke-width: 3px;
 }
 
 #trajectory {

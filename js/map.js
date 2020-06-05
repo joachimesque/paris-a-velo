@@ -369,9 +369,9 @@ const drawLine = ({ start, end, index, className="", number=0 }) => {
 
   let lineLengthClass = "";
   if (number && !className) {
-    if (number > 15) {
+    if (number > 18) {
       lineLengthClass = " line__long";
-    } else if (number > 7) {
+    } else if (number > 12) {
       lineLengthClass = " line__medium";
     } else {
       lineLengthClass = " line__short";
