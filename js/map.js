@@ -373,7 +373,7 @@ const drawLine = ({ start, end, index, className="" }) => {
     y1: start.y,
     y2: end.y,
     class: "line__element line__regular " + className,
-    "stroke-width": singleLineWidth,
+    //"stroke-width": singleLineWidth,
   });
   linesGroup.appendChild(newLine);
 
@@ -418,7 +418,7 @@ const drawDoubleLine = ({ start, end, difficulty, index }) => {
     y1: -1 * length / 2,
     y2: length / 2,
     class: lineClass1,
-    "stroke-width": doubleLineWidth,
+    //"stroke-width": doubleLineWidth,
   });
   setAttributes(newLine2, {
     x1: doubleLineGap,
@@ -426,7 +426,7 @@ const drawDoubleLine = ({ start, end, difficulty, index }) => {
     y1: -1 * length / 2,
     y2: length / 2,
     class: lineClass2,
-    "stroke-width": doubleLineWidth,
+    //"stroke-width": doubleLineWidth,
   });
 
   setAttributes(newArrow1, {

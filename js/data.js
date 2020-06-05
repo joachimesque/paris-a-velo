@@ -131,15 +131,14 @@ const data = {
     "Technocite": {label:"Technocité - Sutar - Aritxague", x:402, y:432},
     "Iraty": {label:"La Négresse - Iraty", x:203, y:489},
     "Milady": {label:"Cité de l'Océan - Milady", x:85, y:492},
-    "Bassussary": {label:"Bassussary", x:569, y:510},
-    "Izarbel": {label:"Technopôle Izarbel", x:286, y:518},
-    "LoreLanda": {label:"Pôle Lore Landa", x:420, y:528},
+    "Bassussary": {label:"Bassussary", x:418, y:517},
+    "Izarbel": {label:"Technopôle Izarbel", x:212, y:535},
+    "LoreLanda": {label:"Pôle Lore Landa", x:269, y:534},
     "Ilbarritz": {label:"lbarritz - Burruntz", x:78, y:566},
     "Arcangues": {label:"Arcangues", x:540, y:570},
-    "Arbonne": {label:"Arbonne", x:435, y:578},
-    "Uhabia": {label:"Uhabia - Bassilour", x:201, y:584},
+    "Arbonne": {label:"Arbonne", x:350, y:578},
+    "Uhabia": {label:"Uhabia - Bassilour", x:201, y:609},
     "Bidart": {label:"Bidart", x:14, y:619},
-    
 
   },
 };

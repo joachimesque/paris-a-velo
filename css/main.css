@@ -120,6 +120,8 @@ a:hover {
   color: #557;
 }
 
+h1 { text-align: center; }
+
 /* Typography */
 
 p+p {
@@ -276,6 +278,10 @@ svg#map {
   display: none;
 }
 
+.line__element {
+  stroke-width: 2px;
+}
+
 svg#map.trajectoryMode .line__element,
 svg#map.trajectoryMode .numberText {
   opacity: .2;
@@ -301,8 +307,7 @@ svg#map text {
 
 svg#map .bateau {
   stroke: #386896;
-  stroke-dasharray: 2 10;
-
+  stroke-dasharray: 8 10;
 }
 
 .numberText {
