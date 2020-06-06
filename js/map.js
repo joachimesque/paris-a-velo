@@ -474,7 +474,7 @@ const drawLineZone = ({ start, end, index, className="" }) => {
     x2: end.x,
     y1: start.y,
     y2: end.y,
-    stroke: "#555",
+    stroke: "#000",
     "stroke-width": zoneLineWidth,
     class: "zoneLine " + className,
   });
