@@ -372,7 +372,7 @@ const drawLine = ({ start, end, index, className="" }) => {
     x2: end.x,
     y1: start.y,
     y2: end.y,
-    class: "line__element line__regular " + className,
+    class: `line__element line__regular ${className}`,
     "stroke-width": singleLineWidth,
   });
   linesGroup.appendChild(newLine);
@@ -380,7 +380,7 @@ const drawLine = ({ start, end, index, className="" }) => {
   drawLineZone({ start, end, index, className });
 };
 
-const drawDoubleLine = ({ start, end, difficulty, index }) => {
+const drawDoubleLine = ({ start, end, difficulty, index, className="" }) => {
   const newGroup = document.createElementNS("http://www.w3.org/2000/svg", "g");
   const newLine1 = document.createElementNS(
     "http://www.w3.org/2000/svg",
@@ -454,7 +454,7 @@ const drawDoubleLine = ({ start, end, difficulty, index }) => {
 
   setAttributes(newGroup, {
     id: `line__${index}`,
-    class: "line__element line__group",
+    class: `line__element line__group ${className}`,
     transform: `rotate(${lineAngle} ${lineCenter.x} ${lineCenter.y}) translate(${lineCenter.x} ${lineCenter.y})`,
   });
 
@@ -476,7 +476,7 @@ const drawLineZone = ({ start, end, index, className="" }) => {
     y2: end.y,
     stroke: "#000",
     "stroke-width": zoneLineWidth,
-    class: "zoneLine " + className,
+    class: `zoneLine ${className}`,
   });
 
   lineZonesGroup.appendChild(newLine);
@@ -484,7 +484,7 @@ const drawLineZone = ({ start, end, index, className="" }) => {
   addClickEvent(newLine, () => toggleLine(index));
 };
 
-const drawNumber = ({ start, end, number, align, displayMin, line }) => {
+const drawNumber = ({ start, end, number, align, displayMin, line, className="" }) => {
   const lineCenter = getCenter({ start, end });
   const newText = document.createElementNS(
     "http://www.w3.org/2000/svg",
@@ -507,13 +507,13 @@ const drawNumber = ({ start, end, number, align, displayMin, line }) => {
     y: lineCenter.y,
     "text-anchor": "middle",
     transform: `${rotateTransform} ${translateTransform}`,
-    class: "numberText",
+    class: `numberText ${className}`,
   });
 
   textGroup.appendChild(newText);
 };
 
-const drawDoubleNumber = ({ start, end, numbers, displayMin, line }) => {
+const drawDoubleNumber = ({ start, end, numbers, displayMin, line, className="" }) => {
   const lineCenter = getCenter({ start, end });
   let rotateAngle = getLineAngle({ start, end }) + 90;
   if (rotateAngle > 90) {
@@ -545,7 +545,7 @@ const drawDoubleNumber = ({ start, end, numbers, displayMin, line }) => {
     y: lineCenter.y,
     "text-anchor": "start",
     transform: `${rotateTransform} translate(4 -5)`,
-    class: "numberText numberText--top",
+    class: `numberText numberText--top ${className}`,
   });
   setAttributes(newText2, {
     id: `text__${line}__bottom`,
@@ -553,7 +553,7 @@ const drawDoubleNumber = ({ start, end, numbers, displayMin, line }) => {
     y: lineCenter.y,
     "text-anchor": "end",
     transform: `${rotateTransform} translate(-4 12)`,
-    class: "numberText numberText--bottom",
+    class: `numberText numberText--bottom ${className}`,
   });
 
   textGroup.appendChild(newText1);

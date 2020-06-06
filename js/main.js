@@ -65,12 +65,13 @@ document.fonts.ready.then(function(fontFaceSet) {
         align: line.align,
         displayMin: line.displayMin,
         line: index,
+        className: line.className,
       });
       drawLine({
         start: data.points[line.start],
         end: data.points[line.end],
         index: index,
-        className: line.className
+        className: line.className,
       });
     } else {
       drawDoubleNumber({
@@ -82,12 +83,14 @@ document.fonts.ready.then(function(fontFaceSet) {
         },
         displayMin: line.displayMin,
         line: index,
+        className: line.className,
       });
       drawDoubleLine({
         start: data.points[line.start],
         end: data.points[line.end],
         difficulty: line.difficulty,
         index: index,
+        className: line.className,
       });
     }
   });
