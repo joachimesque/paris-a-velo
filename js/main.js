@@ -16,7 +16,8 @@ const addClickEvent = (element, callback) => {
     element.addEventListener("touchend", () => {
       return !_hasBeenDragged && callback();
     });
-  } else {
+  }
+  if (isClickEnabled()) {
     element.addEventListener("click", () => {
       return !_hasBeenDragged && callback();
     });
