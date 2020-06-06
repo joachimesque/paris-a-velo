@@ -19,6 +19,14 @@ const data = {
     },
     {
       start: "Convention",
+      end: "Porte de Versailles",
+      difficulty: 0,
+      displayMin: false,
+      time: 3,
+      align: "top",
+    },
+    {
+      start: "Convention",
       end: "Gare Montparnasse",
       difficulty: 0,
       displayMin: true,
@@ -2464,7 +2472,7 @@ const data = {
     },
   ],
   points: {
-    Convention: { x: 475, y: 699 },
+    Convention: { x: 476, y: 697 },
     "Croix de Chavaux": { x: 993, y: 582 },
     "Gare Montparnasse": { x: 562, y: 654 },
     "Gare Saint-Lazare": { x: 580, y: 467 },
@@ -2511,7 +2519,7 @@ const data = {
     "Place de l’Alma": { x: 491, y: 536 },
     "Marcel Sembat": { x: 280, y: 718 },
     "Hôpital Corentin-Celton": { x: 412, y: 763 },
-    "Porte de Versailles": { x: 447, y: 722 },
+    "Porte de Versailles": { x: 446, y: 722 },
     "Mairie de Vanves": { x: 452, y: 795 },
     "Mairie des Lilas": { x: 926, y: 453 },
     "Mairie de Romainville": { x: 997, y: 420 },
