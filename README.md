@@ -44,10 +44,16 @@ Chaque point est défini par des coordonnées `x` et `y` relatives aux coordonn�
 Avec ces coordonnées on peut ajouter les objets de points sur le modèle
 
 ```
-    "Nom du Point": { x: 144, y: 288 },
+    "Nom du Point": {
+      x: 144,
+      y: 288,
+      label: "Nom du point", // facultatif
+    },
 ```
 
 En adaptant bien sûr le nom du point et les coordonnées.
+
+L’argument `label` est factultatif, au cas où on veut un nom de variable différent du nom du point.
 
 Une fois qu’assez de points ont été ajoutés, on peut tracer les lignes.
 
@@ -57,12 +63,13 @@ Chaque objet de ligne est composé comme suit :
 
 ```
     {
-      start: "Nom du Point A",
+      start: "Nom du Point A", 
       end: "Nom du Point B",
       difficulty: 0,
-      displayMin: true,
+      displayMin: true,        // facultatif
       time: 6,
-      align: "top",
+      align: "top",            // facultatif
+      className: "",           // facultatif
     }
 ```
 
@@ -73,10 +80,11 @@ Chaque objet de ligne est composé comme suit :
       start: "Nom du Point C",
       end: "Nom du Point D",
       difficulty: 1,
-      displayMin: true,
+      displayMin: true,            // facultatif
       time: 6,
       times: { hard: 7, easy: 5 },
-      align: "top",
+      align: "top",                // facultatif
+      className: "",               // facultatif
     },
 ```
 
@@ -86,10 +94,11 @@ Chacunes de ces propriétés doivent être définies :
 - `difficulty` renseigne la difficulté : `0` pour un chemin plat, `1` pour une montée entre le point C et D, `-1` pour une descente (il y a quelques imprécisions dans le code qui font que les valeurs sont parfois prises à l’envers, c'est un bug à résoudre—si ça marche pas du premier coup ça marchera en inversant la valeur) ;
 - `displayMin` spécifie si “min” est ajouté après le chiffre de la durée _par défaut sur `true`_ ;
 - `time` définit le temps de trajet affiché pour terrain plat et utilisé pour tous les calculs d’itinéraires ;
-- `times` est un objet qui n’est nécessaire que pour les trajets en montée/descente, il contient deux valeurs :
+- `times` est un objet qui n’est _nécessaire que pour les trajets en montée/descente_, il contient deux valeurs :
     * `hard` la durée du trajet en montée ;
     * `easy` la durée du trajet en descente ;
-- `align` précise si le texte de la durée est affiché au dessus ou au dessous de la ligne (ne marche que pour les trajets plats) _par défaut sur "top"_.
+- `align` précise si le texte de la durée est affiché au dessus ou au dessous de la ligne (ne marche que pour les trajets plats) _par défaut sur "top"_ ;
+- `className` est facultatif, et va transmettre la même `class` aux éléments de la ligne, et de la zone de clic correspondant à la ligne.
 
 L’affichage des points et des lignes ne se fera pas complètement si les données ne sont pas bien renseignées.
 
@@ -104,6 +113,10 @@ Une partie des données cartographiques utilisées (le dessin de la Seine par ex
 ### Contributions de timings
 
 [@pschtt](https://twitter.com/pschtt), [@yaaax](https://github.com/yaaax)
+
+### Contributions de code
+
+[@briacp](https://github.com/briacp)
 
 ---
 

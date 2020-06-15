@@ -233,6 +233,13 @@ svg#map {
 .zoneLine {
   opacity: 0;
   cursor: pointer;
+  transition: opacity .4s ease-out;
+}
+
+.zonePoint:hover,
+.zoneLine:hover {
+  opacity: 0.1;
+  transition: opacity .2s ease-in;
 }
 
 .line__regular {

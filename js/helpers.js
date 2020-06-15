@@ -1,3 +1,4 @@
+/*jshint esversion:6 */
 //
 
 const slugify = (text = "", separator) => {
@@ -78,5 +79,5 @@ const arrayRemoveValue = (array, value) => {
 
 // detect touch screens
 
-const isTouchEnabled = () => ('ontouchstart' in window || navigator.maxTouchPoints > 0)
-const isClickEnabled = () => ('onclick' in window)
+const isTouchEnabled = () => ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+const isClickEnabled = () => ('onclick' in window);
