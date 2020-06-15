@@ -1,8 +1,9 @@
+/*jshint esversion:6 */
 const containerElement = document.querySelector('#container');
 const svgElement = document.querySelector('svg');
 const svgViewbox = svgElement.viewBox.baseVal;
-const lineMap = new Object();
-const pointsMap = new Object();
+const lineMap = {};
+const pointsMap = {};
 
 // GLOBAL EVENT LISTENERS
 
@@ -39,14 +40,14 @@ document.fonts.ready.then(function(fontFaceSet) {
     pointsMap[point] = [];
 
     // draw map points
-    drawPoint(data.points[point], point);
+    drawPoint(data.points[point], point, data.points[point].label);
   });
 
   // display default points or load saved points (TODO)
   if (data.defaultPointsDisplayed != []) {
     data.defaultPointsDisplayed.forEach((pointToDisplay) => {
       highlightPoint(pointToDisplay);
-    })
+    });
   }
 
   // lines
@@ -64,11 +65,13 @@ document.fonts.ready.then(function(fontFaceSet) {
         align: line.align,
         displayMin: line.displayMin,
         line: index,
+        className: line.className,
       });
       drawLine({
         start: data.points[line.start],
         end: data.points[line.end],
         index: index,
+        className: line.className,
       });
     } else {
       drawDoubleNumber({
@@ -80,12 +83,14 @@ document.fonts.ready.then(function(fontFaceSet) {
         },
         displayMin: line.displayMin,
         line: index,
+        className: line.className,
       });
       drawDoubleLine({
         start: data.points[line.start],
         end: data.points[line.end],
         difficulty: line.difficulty,
         index: index,
+        className: line.className,
       });
     }
   });
@@ -197,7 +202,7 @@ document.fonts.ready.then(function(fontFaceSet) {
     if(event.key === '-') {
       panZoom.zoomOut();
     }
-  })
+  });
 
   // MOBILE FOLD
   const interfaceElement = document.querySelector('#interface');
@@ -207,14 +212,14 @@ document.fonts.ready.then(function(fontFaceSet) {
       interfaceElement.classList.toggle('interface--isFolded');
       foldButton.innerHTML = interfaceElement.classList.contains('interface--isFolded') ?
         '↓' :
-        '×'
+        '×';
 
       setTimeout(() => {
         panZoom.resize();
         panZoom.fit();
         panZoom.center();
       }, 100);
-    })
+    });
   }
 
 });
